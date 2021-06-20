@@ -7,7 +7,7 @@ CREATE TABLE GESTOR(
 	id INT PRIMARY KEY IDENTITY,
 	direccion VARCHAR(50) NOT NULL,
 	tipo_encargado VARCHAR(50) NOT NULL,
-	correo_institucional VARCHAR(20) NOT NULL,
+	correo_institucional VARCHAR(50) NOT NULL,
 	nombre VARCHAR(50) NOT NULL,
 	contraseña VARCHAR(8)
 );
@@ -23,7 +23,7 @@ CREATE TABLE VACUNADOR(
 	id INT PRIMARY KEY IDENTITY,
 	direccion VARCHAR(50) NOT NULL,
 	tipo_encargado VARCHAR(50) NOT NULL,
-	correo_institucional VARCHAR(20) NOT NULL,
+	correo_institucional VARCHAR(50) NOT NULL,
 	nombre VARCHAR(50) NOT NULL
 );
 
@@ -41,7 +41,7 @@ CREATE TABLE USUARIO(
 	id INT PRIMARY KEY IDENTITY,
 	dui VARCHAR(10) NOT NULL,
 	direccion VARCHAR(50) NOT NULL,
-	correo_electronico VARCHAR(20),
+	correo_electronico VARCHAR(50),
 	nombre VARCHAR(50) NOT NULL,
 	telefono VARCHAR(12) NOT NULL,
 	id_institucion_esencial INT NULL, -- FK
@@ -50,18 +50,24 @@ CREATE TABLE USUARIO(
 
 CREATE TABLE VACUNA(
 	id INT PRIMARY KEY IDENTITY,
-	fecha_espera_vacuna1 DATETIME NULL,
-	fecha_vacunacion_vacuna1 DATETIME NULL,
-	fecha_espera_vacuna2 DATETIME NULL,
-	fecha_vacunacion_vacuna2 DATETIME NULL,
+	fecha_espera_vacuna1 VARCHAR(10) NULL,
+	hora_vacuna1 VARCHAR(5) NULL,
+	fecha_vacunacion_vacuna1 VARCHAR(10) NULL,
+	hora_vacunacion1 VARCHAR(5) NULL,
+	fecha_espera_vacuna2 VARCHAR(10) NULL,
+	hora_vacuna2 VARCHAR(5) NULL,
+	fecha_vacunacion_vacuna2 VARCHAR(10) NULL,
+	hora_vacunacion2 VARCHAR(5) NULL,
 	id_usuario INT --FK
 );
 
 CREATE TABLE CITA(
 	id INT PRIMARY KEY IDENTITY,
-	fecha_cita1 DATETIME NULL,
+	fecha_cita1 VARCHAR(10) NULL,
+	hora_cita1 VARCHAR(5) NULL,
 	lugar_vacunacion1 VARCHAR(50) NULL,
-	fecha_cita2 DATETIME NULL,
+	fecha_cita2 VARCHAR(10) NULL,
+	hora_cita2 VARCHAR(5) NULL,
 	lugar_vacunacion2 VARCHAR(50) NULL,
 	id_gestor INT NOT NULL, --FK
 	id_usuario INT NOT NULL --FK
@@ -116,6 +122,7 @@ INSERT INTO INSTITUCION_ESENCIAL VALUES ('PNC');
 INSERT INTO INSTITUCION_ESENCIAL VALUES ('Fuerza Armada');
 INSERT INTO INSTITUCION_ESENCIAL VALUES ('Periodismo');
 INSERT INTO INSTITUCION_ESENCIAL VALUES ('Personal de gobierno');
+INSERT INTO INSTITUCION_ESENCIAL VALUES ('NA'); -- No aplica
 
 -- Insertando datos en enfermedad cronica
 INSERT INTO ENFERMEDAD_CRONICA VALUES('Enfermedad Cardiovascular');
@@ -123,6 +130,7 @@ INSERT INTO ENFERMEDAD_CRONICA VALUES('Enfermedad Renal');
 INSERT INTO ENFERMEDAD_CRONICA VALUES('Enfermedad Respiratoria');
 INSERT INTO ENFERMEDAD_CRONICA VALUES('Diabetes');
 INSERT INTO ENFERMEDAD_CRONICA VALUES('Cancer');
+INSERT INTO ENFERMEDAD_CRONICA VALUES('NA'); -- No aplica
 
 -- Insertando efectos secundarios
 INSERT INTO EFECTO_SECUNDARIO VALUES('Dolor en el brazo', NULL);
@@ -169,7 +177,7 @@ INSERT INTO CABINA VALUES ('Col Jard De Merliot Cl Ayagualo No B-2 Cdad','+50322
 INSERT INTO CABINA VALUES ('Cl San Antonio Abad No 1817','+50322254277',NULL);
 INSERT INTO CABINA VALUES ('Col Escalón 91 Av Nte No 515','+50322515461',NULL);
 INSERT INTO CABINA VALUES ('Col El Roble Cl 2 Av A Zona 9 No 133','+50323106614',NULL);
-INSERT INTO CABINA VALUES ('Autop Nte Col El Milagro No 4 Mejicanos','+503 26542987',NULL);
+INSERT INTO CABINA VALUES ('Autop Nte Col El Milagro No 4 Mejicanos','+50326542987',NULL);
 INSERT INTO CABINA VALUES ('Av Gregorio Melara No 14 Usulutan','+50322193122',NULL);
 INSERT INTO CABINA VALUES ('Ps Gral Escalón C C Galerías 3Er Nvl Loc 348-B','+50322161862',NULL);
 INSERT INTO CABINA VALUES ('Bo San Sebastián, 4 Av Sur No 11','+50324084558',NULL);
