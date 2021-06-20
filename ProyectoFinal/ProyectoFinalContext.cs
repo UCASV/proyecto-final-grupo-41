@@ -99,12 +99,24 @@ namespace ProyectoFinal.Model
                 entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.FechaCita1)
-                    .HasColumnType("datetime")
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
                     .HasColumnName("fecha_cita1");
 
                 entity.Property(e => e.FechaCita2)
-                    .HasColumnType("datetime")
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
                     .HasColumnName("fecha_cita2");
+
+                entity.Property(e => e.HoraCita1)
+                    .HasMaxLength(5)
+                    .IsUnicode(false)
+                    .HasColumnName("hora_cita1");
+
+                entity.Property(e => e.HoraCita2)
+                    .HasMaxLength(5)
+                    .IsUnicode(false)
+                    .HasColumnName("hora_cita2");
 
                 entity.Property(e => e.IdGestor).HasColumnName("id_gestor");
 
@@ -179,7 +191,7 @@ namespace ProyectoFinal.Model
 
                 entity.Property(e => e.CorreoInstitucional)
                     .IsRequired()
-                    .HasMaxLength(20)
+                    .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("correo_institucional");
 
@@ -246,7 +258,7 @@ namespace ProyectoFinal.Model
                 entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.CorreoElectronico)
-                    .HasMaxLength(20)
+                    .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("correo_electronico");
 
@@ -296,20 +308,44 @@ namespace ProyectoFinal.Model
                 entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.FechaEsperaVacuna1)
-                    .HasColumnType("datetime")
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
                     .HasColumnName("fecha_espera_vacuna1");
 
                 entity.Property(e => e.FechaEsperaVacuna2)
-                    .HasColumnType("datetime")
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
                     .HasColumnName("fecha_espera_vacuna2");
 
                 entity.Property(e => e.FechaVacunacionVacuna1)
-                    .HasColumnType("datetime")
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
                     .HasColumnName("fecha_vacunacion_vacuna1");
 
                 entity.Property(e => e.FechaVacunacionVacuna2)
-                    .HasColumnType("datetime")
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
                     .HasColumnName("fecha_vacunacion_vacuna2");
+
+                entity.Property(e => e.HoraVacuna1)
+                    .HasMaxLength(5)
+                    .IsUnicode(false)
+                    .HasColumnName("hora_vacuna1");
+
+                entity.Property(e => e.HoraVacuna2)
+                    .HasMaxLength(5)
+                    .IsUnicode(false)
+                    .HasColumnName("hora_vacuna2");
+
+                entity.Property(e => e.HoraVacunacion1)
+                    .HasMaxLength(5)
+                    .IsUnicode(false)
+                    .HasColumnName("hora_vacunacion1");
+
+                entity.Property(e => e.HoraVacunacion2)
+                    .HasMaxLength(5)
+                    .IsUnicode(false)
+                    .HasColumnName("hora_vacunacion2");
 
                 entity.Property(e => e.IdUsuario).HasColumnName("id_usuario");
 
@@ -327,7 +363,7 @@ namespace ProyectoFinal.Model
 
                 entity.Property(e => e.CorreoInstitucional)
                     .IsRequired()
-                    .HasMaxLength(20)
+                    .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("correo_institucional");
 

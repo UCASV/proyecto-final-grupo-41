@@ -14,10 +14,14 @@ namespace ProyectoFinal.Model
         }
 
         public int Id { get; set; }
-        public DateTime? FechaEsperaVacuna1 { get; set; }
-        public DateTime? FechaVacunacionVacuna1 { get; set; }
-        public DateTime? FechaEsperaVacuna2 { get; set; }
-        public DateTime? FechaVacunacionVacuna2 { get; set; }
+        public string FechaEsperaVacuna1 { get; set; }
+        public string HoraVacuna1 { get; set; }
+        public string FechaVacunacionVacuna1 { get; set; }
+        public string HoraVacunacion1 { get; set; }
+        public string FechaEsperaVacuna2 { get; set; }
+        public string HoraVacuna2 { get; set; }
+        public string FechaVacunacionVacuna2 { get; set; }
+        public string HoraVacunacion2 { get; set; }
         public int? IdUsuario { get; set; }
 
         public virtual Usuario IdUsuarioNavigation { get; set; }

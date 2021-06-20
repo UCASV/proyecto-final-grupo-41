@@ -171,16 +171,16 @@ INSERT INTO VACUNADOR VALUES (' Col Escalón 79 Av Sur No 320','Enfermería','erim
 	id_gestor VARCHAR(50) NOT NULL --FK
 );*/
 
-INSERT INTO CABINA VALUES ('Av El Boquerón Políg B-1 Jardines Del Volcán','+50322894966',NULL);
-INSERT INTO CABINA VALUES ('8 Cl Ote Y 1 Av Sur Sta Tecla','+50322291784',NULL);
-INSERT INTO CABINA VALUES ('Col Jard De Merliot Cl Ayagualo No B-2 Cdad','+50322648550',NULL);
-INSERT INTO CABINA VALUES ('Cl San Antonio Abad No 1817','+50322254277',NULL);
-INSERT INTO CABINA VALUES ('Col Escalón 91 Av Nte No 515','+50322515461',NULL);
-INSERT INTO CABINA VALUES ('Col El Roble Cl 2 Av A Zona 9 No 133','+50323106614',NULL);
-INSERT INTO CABINA VALUES ('Autop Nte Col El Milagro No 4 Mejicanos','+50326542987',NULL);
-INSERT INTO CABINA VALUES ('Av Gregorio Melara No 14 Usulutan','+50322193122',NULL);
-INSERT INTO CABINA VALUES ('Ps Gral Escalón C C Galerías 3Er Nvl Loc 348-B','+50322161862',NULL);
-INSERT INTO CABINA VALUES ('Bo San Sebastián, 4 Av Sur No 11','+50324084558',NULL);
+INSERT INTO CABINA VALUES ('Av El Boquerón Políg B-1 Jardines Del Volcán','+50322894966','1');
+INSERT INTO CABINA VALUES ('8 Cl Ote Y 1 Av Sur Sta Tecla','+50322291784','2');
+INSERT INTO CABINA VALUES ('Col Jard De Merliot Cl Ayagualo No B-2 Cdad','+50322648550','3');
+INSERT INTO CABINA VALUES ('Cl San Antonio Abad No 1817','+50322254277','4');
+INSERT INTO CABINA VALUES ('Col Escalón 91 Av Nte No 515','+50322515461','5');
+INSERT INTO CABINA VALUES ('Col El Roble Cl 2 Av A Zona 9 No 133','+50323106614','6');
+INSERT INTO CABINA VALUES ('Autop Nte Col El Milagro No 4 Mejicanos','+50326542987','7');
+INSERT INTO CABINA VALUES ('Av Gregorio Melara No 14 Usulutan','+50322193122','8');
+INSERT INTO CABINA VALUES ('Ps Gral Escalón C C Galerías 3Er Nvl Loc 348-B','+50322161862','9');
+INSERT INTO CABINA VALUES ('Bo San Sebastián, 4 Av Sur No 11','+50324084558','9');
 
 SELECT * FROM INSTITUCION_ESENCIAL;
 SELECT * FROM ENFERMEDAD_CRONICA;
@@ -190,6 +190,8 @@ SELECT * FROM CABINA;
 SELECT * FROM GESTOR;
 SELECT * FROM VACUNADOR;
 
+DELETE FROM CABINA;
+
 -- dotnet ef dbcontext scaffold ”Server=PEÑA; Database=ProyectoFinalDB; Trusted_Connection=True;” Microsoft.EntityFrameworkCore.SqlServer -c ProyectoFinalContext
 -- dotnet ef migrations add init (migracion inicial)
 -- dotnet ef migrations add changeN (migraciones -N)
@@ -197,4 +199,4 @@ SELECT * FROM VACUNADOR;
 
 
 --cmd para modificar base dentro de vs 
--- dotnet ef dbcontext scaffold "CONNECTION STRING" Microsoft.EntityFrameworkCore.SqlServer -o Models -f
+-- dotnet ef dbcontext scaffold "Data Source=DESKTOP-I2BFQIS;Initial Catalog=ProyectoFinalDB;Integrated Security=True" Microsoft.EntityFrameworkCore.SqlServer -o Models -f

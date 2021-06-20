@@ -26,16 +26,5 @@ namespace ProyectoFinal.Model
         public virtual InstitucionEsencial IdInstitucionEsencialNavigation { get; set; }
         public virtual ICollection<Citum> Cita { get; set; }
         public virtual ICollection<Vacuna> Vacunas { get; set; }
-
-        public Usuario(string dui, string direccion, string correoElectronico, string nombre, string telefono, EnfermedadCronica idEnfermedadCronicaNavigation, InstitucionEsencial idInstitucionEsencialNavigation)
-        {
-            Dui = dui;
-            Direccion = direccion;
-            CorreoElectronico = correoElectronico;
-            Nombre = nombre;
-            Telefono = telefono;
-            IdEnfermedadCronicaNavigation = idEnfermedadCronicaNavigation;
-            IdInstitucionEsencialNavigation = idInstitucionEsencialNavigation;
-        }
     }
 }
