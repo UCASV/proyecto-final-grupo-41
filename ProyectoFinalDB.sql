@@ -8,15 +8,15 @@ CREATE TABLE GESTOR(
 	direccion VARCHAR(50) NOT NULL,
 	tipo_encargado VARCHAR(50) NOT NULL,
 	correo_institucional VARCHAR(20) NOT NULL,
-	nombre VARCHAR(50) NOT NULL
+	nombre VARCHAR(50) NOT NULL,
+	contraseña VARCHAR(8)
 );
 
 CREATE TABLE CABINA(
 	id INT PRIMARY KEY IDENTITY,
 	direccion VARCHAR(50) NOT NULL,
 	telefono VARCHAR(12) NOT NULL,
-	correo_electronico VARCHAR(20) NOT NULL,
-	nombre_encargado VARCHAR(50) NOT NULL
+	id_gestor INT NULL--FK
 );
 
 CREATE TABLE VACUNADOR(
@@ -41,7 +41,7 @@ CREATE TABLE USUARIO(
 	id INT PRIMARY KEY IDENTITY,
 	dui VARCHAR(10) NOT NULL,
 	direccion VARCHAR(50) NOT NULL,
-	correo_electronico VARCHAR(20) NOT NULL,
+	correo_electronico VARCHAR(20),
 	nombre VARCHAR(50) NOT NULL,
 	telefono VARCHAR(12) NOT NULL,
 	id_institucion_esencial INT NULL, -- FK
@@ -86,6 +86,8 @@ CREATE TABLE INICIO_SESION(
 );
 
 -- CREANDO LLAVES FORANEAS (FK)
+-- gestor -> cabina
+ALTER TABLE CABINA ADD FOREIGN KEY (id_gestor) REFERENCES GESTOR(id);
 -- gestor -> cita
 ALTER TABLE CITA ADD FOREIGN KEY (id_gestor) REFERENCES GESTOR(id);
 -- usuario -> cita
@@ -133,12 +135,58 @@ INSERT INTO EFECTO_SECUNDARIO VALUES('Escalofrios', NULL);
 INSERT INTO EFECTO_SECUNDARIO VALUES('Fiebre', NULL);
 INSERT INTO EFECTO_SECUNDARIO VALUES('Nauseas', NULL);
 
+INSERT INTO GESTOR VALUES ('Bo El Centro Av Anastasio Aquino','Soporte Técnico','anselmoq@gob.cov.sv','Anselmo Quinton Consuelo Holguín','e6Jd4ZjD'); 
+INSERT INTO GESTOR VALUES ('Bo El Centro 4 Av Sur No 1-11','Soporte Técnico','roslyne@gob.cov.sv','Roslyn Evelyn Sara Stephens','0YFlrYx6'); 
+INSERT INTO GESTOR VALUES ('Bo El Carmen Av Staben No 11','Soporte Técnico','ingramv@gob.cov.sv','Ingram Velda Truman Reyes','UqLHmm9n'); 
+INSERT INTO GESTOR VALUES ('2 Av Sur No 3 San Juan Opico','Soporte Técnico','sonnyg@gob.cov.sv','Sonny Garfield Eleanor Hancock','alW4kOlV'); 
+INSERT INTO GESTOR VALUES ('Resid Pilarica 59 Av Sur No 1','Enfermería','coryj@gob.cov.sv','Cory Jessica Georgina Samuel','yAwqxFYi'); 
+INSERT INTO GESTOR VALUES ('Urb Jard De Vista Hermosa Av Bella Vista No 23','Enfermería','suzane@gob.cov.sv','Suzan Etelvina Custodio Quixada','Z8ZBszEM'); 
+INSERT INTO GESTOR VALUES ('Col Layco 29 Cl Pte No 1119','Enfermería','vanessam@gob.cov.sv','Vanessa Máximo María White','AYtEA9M4'); 
+INSERT INTO GESTOR VALUES ('Av Central Sur No 4 - 41, Atiquizaya','Enfermería','estebanv@gob.cov.sv','Esteban Vance Praise Knight','7Ios3vMm'); 
+INSERT INTO GESTOR VALUES ('Col Jard De La Sabana I Polig 3-E Sda 6 No 31','Doctor','nohemia@gob.cov.sv','Nohemi Ariel Renata Hollands','AG9TzZlm'); 
+
+INSERT INTO VACUNADOR VALUES ('Col Jard De La Sabana I Polig 3-E Sda 6 No 31','Doctor','eusreg@gov.cov.sv','Eusebio Regino Tyron Goddard'); 
+INSERT INTO VACUNADOR VALUES ('Bo Nuevo 25 Cl Pte No 1320-B','Doctor','julpau@gov.cov.sv','Julianna Paul Jamison Ortiz'); 
+INSERT INTO VACUNADOR VALUES ('Col Roma Cl Lorena Edif Milagro','Doctor','texzar@gov.cov.sv','Tex Zara Wilford Priestley'); 
+INSERT INTO VACUNADOR VALUES ('Col Layco 25 Av Nte No 1423 Loc 3','Doctor','primer@gov.cov.sv','Prince Merlyn Jared Hatheway'); 
+INSERT INTO VACUNADOR VALUES ('Bo El Centro Cl Ppal','Doctor','lucosm@gov.cov.sv','Luciano Osmaro Boone Woodward'); 
+INSERT INTO VACUNADOR VALUES ('Col Lomas De San Francisco Cl Circunv No 10','Enfermeria','fawcru@gov.cov.sv','Fawn Cyrus Rosamond Pocock'); 
+INSERT INTO VACUNADOR VALUES ('Col Escalón 97 Av Nte No 734','Enfermería','catmar@gov.cov.sv','Catherine María de Jesús Aitana Clay'); 
+INSERT INTO VACUNADOR VALUES ('Blvd Venezuela Col Roma No 3416','Enfermería','shaama@gov.cov.sv','Sharon Amarilis Fredric Pavía'); 
+INSERT INTO VACUNADOR VALUES ('Bo El Angel Cl Alberto Masferrer No 4-10','Enfermería','antcar@gov.cov.sv','Antonia Carmen Pastora Parks'); 
+INSERT INTO VACUNADOR VALUES (' Col Escalón 79 Av Sur No 320','Enfermería','erimag@gov.cov.sv','Ericka Magdalen Elaina Woodcock'); 
+
+/*CREATE TABLE CABINA(
+	id INT PRIMARY KEY IDENTITY,
+	direccion VARCHAR(50) NOT NULL,
+	telefono VARCHAR(12) NOT NULL,
+	id_gestor VARCHAR(50) NOT NULL --FK
+);*/
+
+INSERT INTO CABINA VALUES ('Av El Boquerón Políg B-1 Jardines Del Volcán','+50322894966',NULL);
+INSERT INTO CABINA VALUES ('8 Cl Ote Y 1 Av Sur Sta Tecla','+50322291784',NULL);
+INSERT INTO CABINA VALUES ('Col Jard De Merliot Cl Ayagualo No B-2 Cdad','+50322648550',NULL);
+INSERT INTO CABINA VALUES ('Cl San Antonio Abad No 1817','+50322254277',NULL);
+INSERT INTO CABINA VALUES ('Col Escalón 91 Av Nte No 515','+50322515461',NULL);
+INSERT INTO CABINA VALUES ('Col El Roble Cl 2 Av A Zona 9 No 133','+50323106614',NULL);
+INSERT INTO CABINA VALUES ('Autop Nte Col El Milagro No 4 Mejicanos','+503 26542987',NULL);
+INSERT INTO CABINA VALUES ('Av Gregorio Melara No 14 Usulutan','+50322193122',NULL);
+INSERT INTO CABINA VALUES ('Ps Gral Escalón C C Galerías 3Er Nvl Loc 348-B','+50322161862',NULL);
+INSERT INTO CABINA VALUES ('Bo San Sebastián, 4 Av Sur No 11','+50324084558',NULL);
+
 SELECT * FROM INSTITUCION_ESENCIAL;
 SELECT * FROM ENFERMEDAD_CRONICA;
 SELECT * FROM EFECTO_SECUNDARIO;
 SELECT * FROM USUARIO;
+SELECT * FROM CABINA;
+SELECT * FROM GESTOR;
+SELECT * FROM VACUNADOR;
 
 -- dotnet ef dbcontext scaffold ”Server=PEÑA; Database=ProyectoFinalDB; Trusted_Connection=True;” Microsoft.EntityFrameworkCore.SqlServer -c ProyectoFinalContext
 -- dotnet ef migrations add init (migracion inicial)
 -- dotnet ef migrations add changeN (migraciones -N)
 -- dotnet ef database update changeN (actualiza la migracion -N en la BD)
+
+
+--cmd para modificar base dentro de vs 
+-- dotnet ef dbcontext scaffold "CONNECTION STRING" Microsoft.EntityFrameworkCore.SqlServer -o Models -f
