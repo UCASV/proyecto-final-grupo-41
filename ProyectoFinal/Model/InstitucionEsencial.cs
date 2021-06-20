@@ -3,18 +3,13 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace ProyectoFinal
+namespace ProyectoFinal.Model
 {
     public partial class InstitucionEsencial
     {
         public InstitucionEsencial()
         {
             Usuarios = new HashSet<Usuario>();
-        }
-
-        public InstitucionEsencial(string nombre)
-        {
-            Nombre = nombre;
         }
 
         public int Id { get; set; }

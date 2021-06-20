@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace ProyectoFinal
+namespace ProyectoFinal.Model
 {
     public partial class Cabina
     {
@@ -15,9 +15,9 @@ namespace ProyectoFinal
         public int Id { get; set; }
         public string Direccion { get; set; }
         public string Telefono { get; set; }
-        public string CorreoElectronico { get; set; }
-        public string NombreEncargado { get; set; }
+        public int? IdGestor { get; set; }
 
+        public virtual Gestor IdGestorNavigation { get; set; }
         public virtual ICollection<InicioSesion> InicioSesions { get; set; }
     }
 }
