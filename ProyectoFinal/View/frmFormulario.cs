@@ -48,6 +48,9 @@ namespace ProyectoFinal.View
             db.SaveChanges();
 
             MessageBox.Show("Usuario registrado exitosamente!", "Formulario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Hide();
+            frmCita1 ventana = new frmCita1();
+            ventana.ShowDialog();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -57,7 +60,7 @@ namespace ProyectoFinal.View
 
         private void frmFormulario_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            this.Hide();
         }
     }
 }

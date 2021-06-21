@@ -37,6 +37,11 @@ CREATE TABLE INSTITUCION_ESENCIAL(
 	nombre VARCHAR(50) NOT NULL
 );
 
+CREATE TABLE CENTRO_VACUNACION(
+	id INT PRIMARY KEY IDENTITY,
+	nombre VARCHAR(50) NOT NULL,
+);
+
 CREATE TABLE USUARIO(
 	id INT PRIMARY KEY IDENTITY,
 	dui VARCHAR(10) NOT NULL,
@@ -65,12 +70,11 @@ CREATE TABLE CITA(
 	id INT PRIMARY KEY IDENTITY,
 	fecha_cita1 VARCHAR(10) NULL,
 	hora_cita1 VARCHAR(5) NULL,
-	lugar_vacunacion1 VARCHAR(50) NULL,
 	fecha_cita2 VARCHAR(10) NULL,
 	hora_cita2 VARCHAR(5) NULL,
-	lugar_vacunacion2 VARCHAR(50) NULL,
 	id_gestor INT NOT NULL, --FK
-	id_usuario INT NOT NULL --FK
+	id_usuario INT NOT NULL, --FK
+	id_centro_vacunacion INT NOT NULL -- FK
 );
 
 CREATE TABLE EFECTO_SECUNDARIO(
@@ -98,6 +102,8 @@ ALTER TABLE CABINA ADD FOREIGN KEY (id_gestor) REFERENCES GESTOR(id);
 ALTER TABLE CITA ADD FOREIGN KEY (id_gestor) REFERENCES GESTOR(id);
 -- usuario -> cita
 ALTER TABLE CITA ADD FOREIGN KEY (id_usuario) REFERENCES USUARIO(id);
+-- centro_vacunacion -> cita
+ALTER TABLE CITA ADD FOREIGN KEY (id_centro_vacunacion) REFERENCES CENTRO_VACUNACION(id);
 -- usuario -> vacuna
 ALTER TABLE VACUNA ADD FOREIGN KEY (id_usuario) REFERENCES USUARIO(id);
 -- institucion_esencial -> usuario
@@ -143,6 +149,14 @@ INSERT INTO EFECTO_SECUNDARIO VALUES('Escalofrios', NULL);
 INSERT INTO EFECTO_SECUNDARIO VALUES('Fiebre', NULL);
 INSERT INTO EFECTO_SECUNDARIO VALUES('Nauseas', NULL);
 
+-- Insertando datos de centro de vacunacion
+INSERT INTO CENTRO_VACUNACION VALUES('Hospital El Salvador');
+INSERT INTO CENTRO_VACUNACION VALUES('Autoservicio');
+INSERT INTO CENTRO_VACUNACION VALUES('Unidad de salud');
+INSERT INTO CENTRO_VACUNACION VALUES('Hospital');
+INSERT INTO CENTRO_VACUNACION VALUES('Centro escolar');
+
+-- Insertando datos de gestor
 INSERT INTO GESTOR VALUES ('Bo El Centro Av Anastasio Aquino','Soporte Técnico','anselmoq@gob.cov.sv','Anselmo Quinton Consuelo Holguín','e6Jd4ZjD'); 
 INSERT INTO GESTOR VALUES ('Bo El Centro 4 Av Sur No 1-11','Soporte Técnico','roslyne@gob.cov.sv','Roslyn Evelyn Sara Stephens','0YFlrYx6'); 
 INSERT INTO GESTOR VALUES ('Bo El Carmen Av Staben No 11','Soporte Técnico','ingramv@gob.cov.sv','Ingram Velda Truman Reyes','UqLHmm9n'); 
@@ -153,6 +167,7 @@ INSERT INTO GESTOR VALUES ('Col Layco 29 Cl Pte No 1119','Enfermería','vanessam@
 INSERT INTO GESTOR VALUES ('Av Central Sur No 4 - 41, Atiquizaya','Enfermería','estebanv@gob.cov.sv','Esteban Vance Praise Knight','7Ios3vMm'); 
 INSERT INTO GESTOR VALUES ('Col Jard De La Sabana I Polig 3-E Sda 6 No 31','Doctor','nohemia@gob.cov.sv','Nohemi Ariel Renata Hollands','AG9TzZlm'); 
 
+-- Insertando datos de vacunador
 INSERT INTO VACUNADOR VALUES ('Col Jard De La Sabana I Polig 3-E Sda 6 No 31','Doctor','eusreg@gov.cov.sv','Eusebio Regino Tyron Goddard'); 
 INSERT INTO VACUNADOR VALUES ('Bo Nuevo 25 Cl Pte No 1320-B','Doctor','julpau@gov.cov.sv','Julianna Paul Jamison Ortiz'); 
 INSERT INTO VACUNADOR VALUES ('Col Roma Cl Lorena Edif Milagro','Doctor','texzar@gov.cov.sv','Tex Zara Wilford Priestley'); 
@@ -171,6 +186,7 @@ INSERT INTO VACUNADOR VALUES (' Col Escalón 79 Av Sur No 320','Enfermería','erim
 	id_gestor VARCHAR(50) NOT NULL --FK
 );*/
 
+-- Insertando datos de cabina
 INSERT INTO CABINA VALUES ('Av El Boquerón Políg B-1 Jardines Del Volcán','+50322894966','1');
 INSERT INTO CABINA VALUES ('8 Cl Ote Y 1 Av Sur Sta Tecla','+50322291784','2');
 INSERT INTO CABINA VALUES ('Col Jard De Merliot Cl Ayagualo No B-2 Cdad','+50322648550','3');
@@ -182,13 +198,15 @@ INSERT INTO CABINA VALUES ('Av Gregorio Melara No 14 Usulutan','+50322193122','8
 INSERT INTO CABINA VALUES ('Ps Gral Escalón C C Galerías 3Er Nvl Loc 348-B','+50322161862','9');
 INSERT INTO CABINA VALUES ('Bo San Sebastián, 4 Av Sur No 11','+50324084558','9');
 
+-- Consultas
 SELECT * FROM INSTITUCION_ESENCIAL;
 SELECT * FROM ENFERMEDAD_CRONICA;
 SELECT * FROM EFECTO_SECUNDARIO;
-SELECT * FROM USUARIO;
 SELECT * FROM CABINA;
 SELECT * FROM GESTOR;
 SELECT * FROM VACUNADOR;
+SELECT * FROM USUARIO;
+SELECT * FROM CITA;
 
 DELETE FROM CABINA;
 
