@@ -19,5 +19,14 @@ namespace ProyectoFinal.Model
 
         public virtual Gestor IdGestorNavigation { get; set; }
         public virtual Usuario IdUsuarioNavigation { get; set; }
+
+        public Citum(string fechaCita1, string horaCita1, string lugarVacunacion1, Gestor idGestorNavigation, Usuario idUsuarioNavigation)
+        {
+            FechaCita1 = fechaCita1;
+            HoraCita1 = horaCita1;
+            LugarVacunacion1 = lugarVacunacion1;
+            IdGestorNavigation = idGestorNavigation;
+            IdUsuarioNavigation = idUsuarioNavigation;
+        }
     }
 }
