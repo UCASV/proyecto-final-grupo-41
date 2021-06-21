@@ -43,9 +43,9 @@ namespace ProyectoFinal.View
             EnfermedadCronica ECdb = db.Set<EnfermedadCronica>()
                 .SingleOrDefault(e => e.Id == ECref.Id);
 
-            //Usuario u = new Usuario(txtDui.Text, txtDireccion.Text, txtCorreo.Text, txtNombre.Text, txtTelefono.Text, ECdb, IEdb);
-            //db.Add(u);
-            //db.SaveChanges();
+            Usuario u = new Usuario(txtDui.Text, txtDireccion.Text, txtCorreo.Text, txtNombre.Text, txtTelefono.Text, ECdb, IEdb);
+            db.Add(u);
+            db.SaveChanges();
 
             MessageBox.Show("Usuario registrado exitosamente!", "Formulario", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
