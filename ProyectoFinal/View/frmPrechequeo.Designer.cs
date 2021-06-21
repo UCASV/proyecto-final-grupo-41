@@ -33,7 +33,6 @@ namespace ProyectoFinal
             this.label1 = new System.Windows.Forms.Label();
             this.btnPaso2 = new System.Windows.Forms.Button();
             this.btnRegistrarse = new System.Windows.Forms.Button();
-            this.btnHacerCita = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -41,7 +40,7 @@ namespace ProyectoFinal
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.SystemColors.Window;
-            this.label1.Location = new System.Drawing.Point(157, 102);
+            this.label1.Location = new System.Drawing.Point(150, 106);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(211, 37);
             this.label1.TabIndex = 0;
@@ -49,7 +48,7 @@ namespace ProyectoFinal
             // 
             // btnPaso2
             // 
-            this.btnPaso2.Location = new System.Drawing.Point(52, 195);
+            this.btnPaso2.Location = new System.Drawing.Point(112, 168);
             this.btnPaso2.Name = "btnPaso2";
             this.btnPaso2.Size = new System.Drawing.Size(114, 68);
             this.btnPaso2.TabIndex = 1;
@@ -58,7 +57,7 @@ namespace ProyectoFinal
             // 
             // btnRegistrarse
             // 
-            this.btnRegistrarse.Location = new System.Drawing.Point(358, 195);
+            this.btnRegistrarse.Location = new System.Drawing.Point(289, 168);
             this.btnRegistrarse.Name = "btnRegistrarse";
             this.btnRegistrarse.Size = new System.Drawing.Size(114, 68);
             this.btnRegistrarse.TabIndex = 2;
@@ -66,23 +65,12 @@ namespace ProyectoFinal
             this.btnRegistrarse.UseVisualStyleBackColor = true;
             this.btnRegistrarse.Click += new System.EventHandler(this.btnRegistrarse_Click);
             // 
-            // btnHacerCita
-            // 
-            this.btnHacerCita.Location = new System.Drawing.Point(205, 195);
-            this.btnHacerCita.Name = "btnHacerCita";
-            this.btnHacerCita.Size = new System.Drawing.Size(114, 68);
-            this.btnHacerCita.TabIndex = 3;
-            this.btnHacerCita.Text = "Agendar cita";
-            this.btnHacerCita.UseVisualStyleBackColor = true;
-            this.btnHacerCita.Click += new System.EventHandler(this.btnHacerCita_Click);
-            // 
             // frmPrechequeo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(68)))), ((int)(((byte)(193)))));
             this.ClientSize = new System.Drawing.Size(530, 375);
-            this.Controls.Add(this.btnHacerCita);
             this.Controls.Add(this.btnRegistrarse);
             this.Controls.Add(this.btnPaso2);
             this.Controls.Add(this.label1);
@@ -100,7 +88,6 @@ namespace ProyectoFinal
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnPaso2;
         private System.Windows.Forms.Button btnRegistrarse;
-        private System.Windows.Forms.Button btnHacerCita;
     }
 }
 

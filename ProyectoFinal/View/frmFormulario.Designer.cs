@@ -62,6 +62,7 @@ namespace ProyectoFinal.View
             // 
             this.txtDui.Location = new System.Drawing.Point(225, 41);
             this.txtDui.Name = "txtDui";
+            this.txtDui.PlaceholderText = "12345678-0";
             this.txtDui.Size = new System.Drawing.Size(207, 23);
             this.txtDui.TabIndex = 7;
             // 
@@ -69,7 +70,7 @@ namespace ProyectoFinal.View
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(123, 82);
+            this.label2.Location = new System.Drawing.Point(123, 161);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 25);
             this.label2.TabIndex = 8;
@@ -77,7 +78,7 @@ namespace ProyectoFinal.View
             // 
             // txtDireccion
             // 
-            this.txtDireccion.Location = new System.Drawing.Point(225, 82);
+            this.txtDireccion.Location = new System.Drawing.Point(225, 161);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(207, 23);
             this.txtDireccion.TabIndex = 9;
@@ -86,7 +87,7 @@ namespace ProyectoFinal.View
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(46, 122);
+            this.label3.Location = new System.Drawing.Point(46, 198);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(173, 25);
             this.label3.TabIndex = 10;
@@ -94,7 +95,7 @@ namespace ProyectoFinal.View
             // 
             // txtCorreo
             // 
-            this.txtCorreo.Location = new System.Drawing.Point(225, 122);
+            this.txtCorreo.Location = new System.Drawing.Point(225, 198);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(207, 23);
             this.txtCorreo.TabIndex = 11;
@@ -103,7 +104,7 @@ namespace ProyectoFinal.View
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(134, 162);
+            this.label4.Location = new System.Drawing.Point(134, 80);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(85, 25);
             this.label4.TabIndex = 12;
@@ -111,7 +112,7 @@ namespace ProyectoFinal.View
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(225, 162);
+            this.txtNombre.Location = new System.Drawing.Point(225, 80);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(207, 23);
             this.txtNombre.TabIndex = 13;
@@ -120,7 +121,7 @@ namespace ProyectoFinal.View
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(131, 204);
+            this.label5.Location = new System.Drawing.Point(123, 120);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(88, 25);
             this.label5.TabIndex = 14;
@@ -128,8 +129,9 @@ namespace ProyectoFinal.View
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(225, 204);
+            this.txtTelefono.Location = new System.Drawing.Point(225, 120);
             this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.PlaceholderText = "+50312345678";
             this.txtTelefono.Size = new System.Drawing.Size(207, 23);
             this.txtTelefono.TabIndex = 15;
             // 

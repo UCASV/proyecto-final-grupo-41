@@ -98,6 +98,7 @@ namespace ProyectoFinal.View
             // 
             this.txtDUI.Location = new System.Drawing.Point(172, 47);
             this.txtDUI.Name = "txtDUI";
+            this.txtDUI.PlaceholderText = "12345678-0";
             this.txtDUI.Size = new System.Drawing.Size(163, 23);
             this.txtDUI.TabIndex = 5;
             // 
@@ -105,6 +106,7 @@ namespace ProyectoFinal.View
             // 
             this.txtFecha.Location = new System.Drawing.Point(172, 87);
             this.txtFecha.Name = "txtFecha";
+            this.txtFecha.PlaceholderText = "YYYY/MM/DD";
             this.txtFecha.Size = new System.Drawing.Size(163, 23);
             this.txtFecha.TabIndex = 6;
             // 
@@ -112,6 +114,7 @@ namespace ProyectoFinal.View
             // 
             this.txtHora.Location = new System.Drawing.Point(172, 123);
             this.txtHora.Name = "txtHora";
+            this.txtHora.PlaceholderText = "HH:MM";
             this.txtHora.Size = new System.Drawing.Size(163, 23);
             this.txtHora.TabIndex = 7;
             // 
@@ -172,6 +175,7 @@ namespace ProyectoFinal.View
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmCita1";
             this.Text = "Cita1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCita1_FormClosing);
             this.Load += new System.EventHandler(this.frmCita1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

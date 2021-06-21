@@ -24,12 +24,6 @@ namespace ProyectoFinal
             ventana.ShowDialog();
         }
 
-        private void btnHacerCita_Click(object sender, EventArgs e)
-        {
-            frmCita1 ventana = new frmCita1();
-            ventana.ShowDialog();
-        }
-
         private void frmPrechequeo_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
