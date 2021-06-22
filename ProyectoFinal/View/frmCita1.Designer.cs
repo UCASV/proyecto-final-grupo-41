@@ -41,7 +41,7 @@ namespace ProyectoFinal.View
             this.cmbGestor = new System.Windows.Forms.ComboBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.txtLugar = new System.Windows.Forms.TextBox();
+            this.cmbLugar = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -147,20 +147,22 @@ namespace ProyectoFinal.View
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // txtLugar
+            // cmbLugar
             // 
-            this.txtLugar.Location = new System.Drawing.Point(171, 159);
-            this.txtLugar.Name = "txtLugar";
-            this.txtLugar.Size = new System.Drawing.Size(163, 23);
-            this.txtLugar.TabIndex = 12;
+            this.cmbLugar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbLugar.FormattingEnabled = true;
+            this.cmbLugar.Location = new System.Drawing.Point(171, 164);
+            this.cmbLugar.Name = "cmbLugar";
+            this.cmbLugar.Size = new System.Drawing.Size(161, 23);
+            this.cmbLugar.TabIndex = 12;
             // 
             // frmCita1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.ClientSize = new System.Drawing.Size(444, 397);
-            this.Controls.Add(this.txtLugar);
+            this.ClientSize = new System.Drawing.Size(444, 352);
+            this.Controls.Add(this.cmbLugar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.cmbGestor);
@@ -173,6 +175,7 @@ namespace ProyectoFinal.View
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmCita1";
             this.Text = "Cita1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCita1_FormClosing);
@@ -195,6 +198,6 @@ namespace ProyectoFinal.View
         private System.Windows.Forms.ComboBox cmbGestor;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.TextBox txtLugar;
+        private System.Windows.Forms.ComboBox cmbLugar;
     }
 }

@@ -32,25 +32,44 @@ namespace ProyectoFinal.View
 
         private void btnGuardarDatos_Click(object sender, EventArgs e)
         {
-            InstitucionEsencial IEref = (InstitucionEsencial)cmbInstitucion.SelectedItem;
-            EnfermedadCronica ECref = (EnfermedadCronica)cmbEnfermedad.SelectedItem;
+            bool validaciones =
+                txtCorreo.Text.Length <= 50 &&
+                txtDireccion.Text.Length <= 50 &&
+                txtDui.Text.Length == 10 &&
+                txtNombre.Text.Length <= 50 &&
+                txtTelefono.Text.Length == 12;
 
-            var db = new ProyectoFinalContext();
+            if (validaciones)
+            {
+                // Creando variables de referencia
+                InstitucionEsencial IEref = (InstitucionEsencial)cmbInstitucion.SelectedItem;
+                EnfermedadCronica ECref = (EnfermedadCronica)cmbEnfermedad.SelectedItem;
 
-            InstitucionEsencial IEdb = db.Set<InstitucionEsencial>()
-                .SingleOrDefault(i => i.Id == IEref.Id);
+                // Accediendo a la base de datos
+                var db = new ProyectoFinalContext();
 
-            EnfermedadCronica ECdb = db.Set<EnfermedadCronica>()
-                .SingleOrDefault(e => e.Id == ECref.Id);
+                // Mediante las variables de referencia se obtienen los datos almacenados en la base
+                InstitucionEsencial IEdb = db.Set<InstitucionEsencial>()
+                    .SingleOrDefault(i => i.Id == IEref.Id);
 
-            Usuario u = new Usuario(txtDui.Text, txtDireccion.Text, txtCorreo.Text, txtNombre.Text, txtTelefono.Text, ECdb, IEdb);
-            db.Add(u);
-            db.SaveChanges();
+                EnfermedadCronica ECdb = db.Set<EnfermedadCronica>()
+                    .SingleOrDefault(e => e.Id == ECref.Id);
 
-            MessageBox.Show("Usuario registrado exitosamente!", "Formulario", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Hide();
-            frmCita1 ventana = new frmCita1();
-            ventana.ShowDialog();
+                // Se guardan los datos del ciudadano/usuario
+                Usuario u = new Usuario(txtDui.Text, txtDireccion.Text, txtCorreo.Text, txtNombre.Text, txtTelefono.Text, IEdb.Id, ECdb.Id);
+                db.Add(u);
+                db.SaveChanges();
+
+                // Mensaje de confirmacion
+                MessageBox.Show("Usuario registrado exitosamente!", "Formulario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Hide();
+
+                // Se procede a agendar la cita1
+                frmCita1 ventana = new frmCita1();
+                ventana.ShowDialog();
+            }
+            else
+                MessageBox.Show("Los datos ingresados no son validos!", "Formulario", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

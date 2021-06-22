@@ -222,6 +222,7 @@ namespace ProyectoFinal.View
             this.Controls.Add(this.txtDui);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmFormulario";
             this.Text = "Formulario";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmFormulario_FormClosing);

@@ -12,13 +12,6 @@ CREATE TABLE GESTOR(
 	contraseña VARCHAR(8)
 );
 
-CREATE TABLE CABINA(
-	id INT PRIMARY KEY IDENTITY,
-	direccion VARCHAR(50) NOT NULL,
-	telefono VARCHAR(12) NOT NULL,
-	id_gestor INT NULL--FK
-);
-
 CREATE TABLE VACUNADOR(
 	id INT PRIMARY KEY IDENTITY,
 	direccion VARCHAR(50) NOT NULL,
@@ -39,7 +32,24 @@ CREATE TABLE INSTITUCION_ESENCIAL(
 
 CREATE TABLE CENTRO_VACUNACION(
 	id INT PRIMARY KEY IDENTITY,
-	nombre VARCHAR(50) NOT NULL,
+	nombre VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE VACUNA_APLICADA(
+	id INT PRIMARY KEY IDENTITY,
+	nombre VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE EFECTO_SECUNDARIO(
+	id INT PRIMARY KEY IDENTITY,
+	nombre VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE CABINA(
+	id INT PRIMARY KEY IDENTITY,
+	direccion VARCHAR(50) NOT NULL,
+	telefono VARCHAR(12) NOT NULL,
+	id_gestor INT NULL--FK
 );
 
 CREATE TABLE USUARIO(
@@ -56,14 +66,15 @@ CREATE TABLE USUARIO(
 CREATE TABLE VACUNA(
 	id INT PRIMARY KEY IDENTITY,
 	fecha_espera_vacuna1 VARCHAR(10) NULL,
-	hora_vacuna1 VARCHAR(5) NULL,
+	hora_espera_vacuna1 VARCHAR(5) NULL,
 	fecha_vacunacion_vacuna1 VARCHAR(10) NULL,
-	hora_vacunacion1 VARCHAR(5) NULL,
+	hora_vacunacion_vacuna1 VARCHAR(5) NULL,
 	fecha_espera_vacuna2 VARCHAR(10) NULL,
-	hora_vacuna2 VARCHAR(5) NULL,
+	hora_espera_vacuna2 VARCHAR(5) NULL,
 	fecha_vacunacion_vacuna2 VARCHAR(10) NULL,
-	hora_vacunacion2 VARCHAR(5) NULL,
-	id_usuario INT --FK
+	hora_vacunacion_vacuna2 VARCHAR(5) NULL,
+	id_usuario INT NOT NULL, --FK
+	id_vacuna_aplicada INT NOT NULL -- FK
 );
 
 CREATE TABLE CITA(
@@ -75,12 +86,6 @@ CREATE TABLE CITA(
 	id_gestor INT NOT NULL, --FK
 	id_usuario INT NOT NULL, --FK
 	id_centro_vacunacion INT NOT NULL -- FK
-);
-
-CREATE TABLE EFECTO_SECUNDARIO(
-	id INT PRIMARY KEY IDENTITY,
-	nombre VARCHAR(50) NOT NULL,
-	id_vacuna INT NULL -- FK
 );
 
 CREATE TABLE APLICAR_VACUNA(
@@ -95,6 +100,12 @@ CREATE TABLE INICIO_SESION(
 	CONSTRAINT PK_GestorxCabina PRIMARY KEY (id_gestor,id_cabina)
 );
 
+CREATE TABLE VACUNAxEFECTO_SECUNDARIO(
+	id_vacuna INT NOT NULL,
+	id_efecto_secundario INT NOT NULL,
+	CONSTRAINT PK_VacunaxEfectoSecundario PRIMARY KEY(id_vacuna, id_efecto_secundario)
+);
+
 -- CREANDO LLAVES FORANEAS (FK)
 -- gestor -> cabina
 ALTER TABLE CABINA ADD FOREIGN KEY (id_gestor) REFERENCES GESTOR(id);
@@ -106,12 +117,12 @@ ALTER TABLE CITA ADD FOREIGN KEY (id_usuario) REFERENCES USUARIO(id);
 ALTER TABLE CITA ADD FOREIGN KEY (id_centro_vacunacion) REFERENCES CENTRO_VACUNACION(id);
 -- usuario -> vacuna
 ALTER TABLE VACUNA ADD FOREIGN KEY (id_usuario) REFERENCES USUARIO(id);
+-- vacuna_aplicada -> vacuna
+ALTER TABLE VACUNA ADD FOREIGN KEY (id_vacuna_aplicada) REFERENCES VACUNA_APLICADA(id);
 -- institucion_esencial -> usuario
 ALTER TABLE USUARIO ADD FOREIGN KEY (id_institucion_esencial) REFERENCES INSTITUCION_ESENCIAL(id);
 -- enfermedad_cronica -> usuario
 ALTER TABLE USUARIO ADD FOREIGN KEY (id_enfermedad_cronica) REFERENCES ENFERMEDAD_CRONICA(id);
--- vacuna -> efecto_secundario
-ALTER TABLE EFECTO_SECUNDARIO ADD FOREIGN KEY (id_vacuna) REFERENCES VACUNA(id);
 -- vacunador -> aplicar_vacuna
 ALTER TABLE APLICAR_VACUNA ADD FOREIGN KEY (id_vacunador) REFERENCES VACUNADOR(id);
 -- vacuna -> aplicar_vacuna
@@ -120,6 +131,10 @@ ALTER TABLE APLICAR_VACUNA ADD FOREIGN KEY (id_vacuna) REFERENCES VACUNA(id);
 ALTER TABLE INICIO_SESION ADD FOREIGN KEY (id_gestor) REFERENCES GESTOR(id);
 -- cabina -> inicio_sesion
 ALTER TABLE INICIO_SESION ADD FOREIGN KEY (id_cabina) REFERENCES CABINA(id);
+-- vacuna -> vacunaxefecto_secundario
+ALTER TABLE VACUNAxEFECTO_SECUNDARIO ADD FOREIGN KEY (id_vacuna) REFERENCES VACUNA(id);
+-- efecto_secundario -> vacunaxefecto_secundario
+ALTER TABLE VACUNAxEFECTO_SECUNDARIO ADD FOREIGN KEY (id_efecto_secundario) REFERENCES EFECTO_SECUNDARIO(id);
 
 -- Insertando datos en institucion esencial
 INSERT INTO INSTITUCION_ESENCIAL VALUES ('Educacion');
@@ -131,23 +146,25 @@ INSERT INTO INSTITUCION_ESENCIAL VALUES ('Personal de gobierno');
 INSERT INTO INSTITUCION_ESENCIAL VALUES ('NA'); -- No aplica
 
 -- Insertando datos en enfermedad cronica
-INSERT INTO ENFERMEDAD_CRONICA VALUES('Enfermedad Cardiovascular');
-INSERT INTO ENFERMEDAD_CRONICA VALUES('Enfermedad Renal');
-INSERT INTO ENFERMEDAD_CRONICA VALUES('Enfermedad Respiratoria');
-INSERT INTO ENFERMEDAD_CRONICA VALUES('Diabetes');
+INSERT INTO ENFERMEDAD_CRONICA VALUES('Diabetes M');
+INSERT INTO ENFERMEDAD_CRONICA VALUES('Hipertension');
+INSERT INTO ENFERMEDAD_CRONICA VALUES('Cardiopatias');
+INSERT INTO ENFERMEDAD_CRONICA VALUES('Obesidad Morb');
 INSERT INTO ENFERMEDAD_CRONICA VALUES('Cancer');
-INSERT INTO ENFERMEDAD_CRONICA VALUES('NA'); -- No aplica
+INSERT INTO ENFERMEDAD_CRONICA VALUES('Insuficiencia renal');
+INSERT INTO ENFERMEDAD_CRONICA VALUES('Ninguna');
 
 -- Insertando efectos secundarios
-INSERT INTO EFECTO_SECUNDARIO VALUES('Dolor en el brazo', NULL);
-INSERT INTO EFECTO_SECUNDARIO VALUES('Enrojecimiento en el brazo', NULL);
-INSERT INTO EFECTO_SECUNDARIO VALUES('Hinchazon en el brazo', NULL);
-INSERT INTO EFECTO_SECUNDARIO VALUES('Cansancio', NULL);
-INSERT INTO EFECTO_SECUNDARIO VALUES('Dolor de cabeza', NULL);
-INSERT INTO EFECTO_SECUNDARIO VALUES('Dolor muscular', NULL);
-INSERT INTO EFECTO_SECUNDARIO VALUES('Escalofrios', NULL);
-INSERT INTO EFECTO_SECUNDARIO VALUES('Fiebre', NULL);
-INSERT INTO EFECTO_SECUNDARIO VALUES('Nauseas', NULL);
+INSERT INTO EFECTO_SECUNDARIO VALUES('Dolor en el brazo');
+INSERT INTO EFECTO_SECUNDARIO VALUES('Enrojecimiento en el brazo');
+INSERT INTO EFECTO_SECUNDARIO VALUES('Hinchazon en el brazo');
+INSERT INTO EFECTO_SECUNDARIO VALUES('Cansancio');
+INSERT INTO EFECTO_SECUNDARIO VALUES('Dolor de cabeza');
+INSERT INTO EFECTO_SECUNDARIO VALUES('Dolor muscular');
+INSERT INTO EFECTO_SECUNDARIO VALUES('Escalofrios');
+INSERT INTO EFECTO_SECUNDARIO VALUES('Fiebre');
+INSERT INTO EFECTO_SECUNDARIO VALUES('Nauseas');
+INSERT INTO EFECTO_SECUNDARIO VALUES('Ninguno');
 
 -- Insertando datos de centro de vacunacion
 INSERT INTO CENTRO_VACUNACION VALUES('Hospital El Salvador');
@@ -207,14 +224,14 @@ SELECT * FROM GESTOR;
 SELECT * FROM VACUNADOR;
 SELECT * FROM USUARIO;
 SELECT * FROM CITA;
+SELECT * FROM VACUNA;
+SELECT * FROM APLICAR_VACUNA;
+SELECT * FROM EFECTO_SECUNDARIO;
 
 DELETE FROM CABINA;
 
+-- cadena inicial
 -- dotnet ef dbcontext scaffold ”Server=PEÑA; Database=ProyectoFinalDB; Trusted_Connection=True;” Microsoft.EntityFrameworkCore.SqlServer -c ProyectoFinalContext
--- dotnet ef migrations add init (migracion inicial)
--- dotnet ef migrations add changeN (migraciones -N)
--- dotnet ef database update changeN (actualiza la migracion -N en la BD)
-
 
 --cmd para modificar base dentro de vs 
 -- dotnet ef dbcontext scaffold "Data Source=DESKTOP-I2BFQIS;Initial Catalog=ProyectoFinalDB;Integrated Security=True" Microsoft.EntityFrameworkCore.SqlServer -o Models -f

@@ -54,6 +54,7 @@ namespace ProyectoFinal
             this.btnPaso2.TabIndex = 1;
             this.btnPaso2.Text = "Ya tengo una cita";
             this.btnPaso2.UseVisualStyleBackColor = true;
+            this.btnPaso2.Click += new System.EventHandler(this.btnPaso2_Click);
             // 
             // btnRegistrarse
             // 
@@ -75,6 +76,7 @@ namespace ProyectoFinal
             this.Controls.Add(this.btnPaso2);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmPrechequeo";
             this.Text = "Prechequeo";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPrechequeo_FormClosing);

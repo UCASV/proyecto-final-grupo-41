@@ -7,10 +7,18 @@ namespace ProyectoFinal.Model
 {
     public partial class EfectoSecundario
     {
+        public EfectoSecundario(string nombre, int? idVacuna)
+        {
+            Nombre = nombre;
+            IdVacuna = idVacuna;
+        }
+
         public int Id { get; set; }
         public string Nombre { get; set; }
         public int? IdVacuna { get; set; }
 
         public virtual Vacuna IdVacunaNavigation { get; set; }
+
+        
     }
 }

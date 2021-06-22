@@ -173,3 +173,5 @@ C:\Users\maria\Downloads\Proyecto\Proyecto_Final\ProyectoFinal\obj\Debug\net5.0-
 C:\Users\maria\Downloads\Proyecto\Proyecto_Final\ProyectoFinal\obj\Debug\net5.0-windows\ProyectoFinal.pdb
 C:\Users\maria\Downloads\Proyecto\Proyecto_Final\ProyectoFinal\obj\Debug\net5.0-windows\ProyectoFinal.genruntimeconfig.cache
 C:\Users\cemc_\Documents\WORKSPACES\Proyecto_Final\ProyectoFinal\obj\Debug\net5.0-windows\ProyectoFinal.View.frmGestorLogIn.resources
+C:\Users\maria\Downloads\Proyecto\Proyecto_Final\ProyectoFinal\obj\Debug\net5.0-windows\ProyectoFinal.View.frmGestorLogIn.resources
+C:\Users\maria\Downloads\Proyecto\Proyecto_Final\ProyectoFinal\obj\Debug\net5.0-windows\ProyectoFinal.View.frmProcesoVacunacion.resources

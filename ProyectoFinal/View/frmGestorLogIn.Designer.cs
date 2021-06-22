@@ -29,6 +29,7 @@ namespace ProyectoFinal.View
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGestorLogIn));
             this.label1 = new System.Windows.Forms.Label();
             this.txtUser = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
@@ -91,7 +92,6 @@ namespace ProyectoFinal.View
             this.btnEnterUser.Text = "Entrar";
             this.btnEnterUser.UseVisualStyleBackColor = true;
             this.btnEnterUser.Click += new System.EventHandler(this.btnEnterUser_Click);
-          
             // 
             // frmGestorLogIn
             // 
@@ -105,8 +105,9 @@ namespace ProyectoFinal.View
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUser);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmGestorLogIn";
-            this.Text = "Form1";
+            this.Text = "LogIn";
             this.ResumeLayout(false);
             this.PerformLayout();
 

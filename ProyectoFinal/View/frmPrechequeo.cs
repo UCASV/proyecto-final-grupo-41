@@ -24,6 +24,12 @@ namespace ProyectoFinal
             ventana.ShowDialog();
         }
 
+        private void btnPaso2_Click(object sender, EventArgs e)
+        {
+            frmProcesoVacunacion ventana = new frmProcesoVacunacion();
+            ventana.ShowDialog();
+        }
+
         private void frmPrechequeo_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
