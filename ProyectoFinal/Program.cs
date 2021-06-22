@@ -1,3 +1,4 @@
+using ProyectoFinal.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace ProyectoFinal
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmPrechequeo());
+            Application.Run(new frmGestorLogIn());
         }
     }
 }

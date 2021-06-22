@@ -42,9 +42,9 @@ namespace ProyectoFinal.View
             Usuario Udb = db.Set<Usuario>()
                 .SingleOrDefault(u => u.Dui == txtDUI.Text);
 
-            Citum c = new Citum(txtFecha.Text, txtHora.Text, txtLugar.Text, Gdb.Id, Udb.Id);
-            db.Add(c);
-            db.SaveChanges();
+            //Citum c = new Citum(txtFecha.Text, txtHora.Text, txtLugar.Text, Gdb.Id, Udb.Id);
+            //db.Add(c);
+            //db.SaveChanges();
             MessageBox.Show("Cita agendada exitosamente!", "Cita1", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Hide();
         }
