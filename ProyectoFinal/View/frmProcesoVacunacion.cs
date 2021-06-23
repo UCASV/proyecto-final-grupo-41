@@ -28,44 +28,69 @@ namespace ProyectoFinal.View
             cmbEfecto.DataSource = db.EfectoSecundarios.ToList();
             cmbEfecto.DisplayMember = "Nombre";
             cmbEfecto.ValueMember = "Id";
+
+            cmbVacuna.DataSource = db.VacunaAplicada.ToList();
+            cmbVacuna.DisplayMember = "Nombre";
+            cmbVacuna.ValueMember = "Id";
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            // Creando variables de referencia
-            Vacunador Vref = (Vacunador)cmbVacunador.SelectedItem;
-            EfectoSecundario ESref = (EfectoSecundario)cmbEfecto.SelectedItem;
+            bool validaciones =
+                txtDUI.Text.Length == 10 &&
+                txtFechaEspera.Text.Length == 10 &&
+                txtFechaVacunacion.Text.Length == 10 &&
+                txtHoraEspera.Text.Length == 5 &&
+                txtHoraVacunacion.Text.Length == 5;
 
-            // Accediendo a la base de datos
-            var db = new ProyectoFinalContext();
+            if (validaciones)
+            {
+                // Creando variables de referencia
+                Vacunador Vref = (Vacunador)cmbVacunador.SelectedItem;
+                EfectoSecundario ESref = (EfectoSecundario)cmbEfecto.SelectedItem;
+                VacunaAplicadum VAref = (VacunaAplicadum)cmbVacuna.SelectedItem;
 
-            // Mediante las variables de referencia se obtienen los datos almacenados en la base
-            Vacunador Vdb = db.Set<Vacunador>()
-                .SingleOrDefault(v => v.Id == Vref.Id);
+                // Accediendo a la base de datos
+                var db = new ProyectoFinalContext();
 
-            EfectoSecundario ESdb = db.Set<EfectoSecundario>()
-                .SingleOrDefault(es => es.Id == ESref.Id);
+                // Mediante las variables de referencia se obtienen los datos almacenados en la base
+                Vacunador Vdb = db.Set<Vacunador>()
+                    .SingleOrDefault(v => v.Id == Vref.Id);
 
-            Usuario Udb = db.Set<Usuario>()
-                .SingleOrDefault(u => u.Dui == txtDUI.Text);
+                EfectoSecundario ESdb = db.Set<EfectoSecundario>()
+                    .SingleOrDefault(es => es.Id == ESref.Id);
 
-            // Se guardan los datos de la vacuna
-            Vacuna v = new Vacuna(txtFechaEspera.Text, txtHoraEspera.Text, txtFechaVacunacion.Text, txtHoraVacunacion.Text, Udb.Id);
-            db.Add(v);
-            db.SaveChanges();
+                VacunaAplicadum VAdb = db.Set<VacunaAplicadum>()
+                    .SingleOrDefault(va => va.Id == VAref.Id);
 
-            // Se guardan los datos de la vacuna aplicada
-            AplicarVacuna ap = new AplicarVacuna(Vdb.Id, v.Id);
-            db.Add(ap);
-            db.SaveChanges();
+                Usuario Udb = db.Set<Usuario>()
+                    .SingleOrDefault(u => u.Dui == txtDUI.Text);
 
-            //EfectoSecundario es = new EfectoSecundario(ESdb.Nombre, v.Id);
-            //db.Add(es);
-            //db.SaveChanges();
+                // Se guardan los datos de la vacuna
+                Vacuna v = new Vacuna(txtFechaEspera.Text, txtHoraEspera.Text, txtFechaVacunacion.Text, txtHoraVacunacion.Text, Udb.Id, VAdb.Id);
+                db.Add(v);
+                db.SaveChanges();
 
-            // Mensaje de confirmacion
-            MessageBox.Show("Usted ha recibido su primera dosis!", "Dosis 1", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Hide();
+                // Se guardan los datos de la vacuna aplicada
+                AplicarVacuna ap = new AplicarVacuna(Vdb.Id, v.Id);
+                db.Add(ap);
+                db.SaveChanges();
+
+                // Se guardan datos de la tabla cruz entre vacuna y efecto secundario
+                VacunaxEfectoSecundario ve = new VacunaxEfectoSecundario(v.Id, ESdb.Id);
+                db.Add(ve);
+                db.SaveChanges();
+
+                // Mensaje de confirmacion
+                MessageBox.Show("Usted ha recibido su primera dosis!", "Dosis 1", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Hide();
+
+                // Se procede a agendar la cita 2
+                frmCita2 ventana = new frmCita2();
+                ventana.ShowDialog();
+            }
+            else
+                MessageBox.Show("Los datos ingresados no son validos!", "Dosis 1", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

@@ -12,5 +12,11 @@ namespace ProyectoFinal.Model
 
         public virtual EfectoSecundario IdEfectoSecundarioNavigation { get; set; }
         public virtual Vacuna IdVacunaNavigation { get; set; }
+
+        public VacunaxEfectoSecundario(int idVacuna, int idEfectoSecundario)
+        {
+            IdVacuna = idVacuna;
+            IdEfectoSecundario = idEfectoSecundario;
+        }
     }
 }

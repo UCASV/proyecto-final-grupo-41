@@ -12,5 +12,11 @@ namespace ProyectoFinal.Model
 
         public virtual Vacuna IdVacunaNavigation { get; set; }
         public virtual Vacunador IdVacunadorNavigation { get; set; }
+
+        public AplicarVacuna(int idVacunador, int idVacuna)
+        {
+            IdVacunador = idVacunador;
+            IdVacuna = idVacuna;
+        }
     }
 }

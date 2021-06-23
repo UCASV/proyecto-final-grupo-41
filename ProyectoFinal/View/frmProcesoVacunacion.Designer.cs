@@ -46,6 +46,8 @@ namespace ProyectoFinal.View
             this.cmbVacunador = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cmbEfecto = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cmbVacuna = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -72,7 +74,7 @@ namespace ProyectoFinal.View
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(20, 140);
+            this.label3.Location = new System.Drawing.Point(23, 140);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(192, 25);
             this.label3.TabIndex = 2;
@@ -92,6 +94,7 @@ namespace ProyectoFinal.View
             // 
             this.txtFechaEspera.Location = new System.Drawing.Point(218, 68);
             this.txtFechaEspera.Name = "txtFechaEspera";
+            this.txtFechaEspera.PlaceholderText = "YYYY/MM/DD";
             this.txtFechaEspera.Size = new System.Drawing.Size(203, 23);
             this.txtFechaEspera.TabIndex = 4;
             // 
@@ -99,20 +102,23 @@ namespace ProyectoFinal.View
             // 
             this.txtHoraEspera.Location = new System.Drawing.Point(218, 106);
             this.txtHoraEspera.Name = "txtHoraEspera";
+            this.txtHoraEspera.PlaceholderText = "HH:MM";
             this.txtHoraEspera.Size = new System.Drawing.Size(203, 23);
             this.txtHoraEspera.TabIndex = 5;
             // 
             // txtFechaVacunacion
             // 
-            this.txtFechaVacunacion.Location = new System.Drawing.Point(218, 140);
+            this.txtFechaVacunacion.Location = new System.Drawing.Point(218, 145);
             this.txtFechaVacunacion.Name = "txtFechaVacunacion";
+            this.txtFechaVacunacion.PlaceholderText = "YYYY/MM/DD";
             this.txtFechaVacunacion.Size = new System.Drawing.Size(203, 23);
             this.txtFechaVacunacion.TabIndex = 6;
             // 
             // txtHoraVacunacion
             // 
-            this.txtHoraVacunacion.Location = new System.Drawing.Point(218, 174);
+            this.txtHoraVacunacion.Location = new System.Drawing.Point(218, 179);
             this.txtHoraVacunacion.Name = "txtHoraVacunacion";
+            this.txtHoraVacunacion.PlaceholderText = "HH:MM";
             this.txtHoraVacunacion.Size = new System.Drawing.Size(203, 23);
             this.txtHoraVacunacion.TabIndex = 7;
             // 
@@ -130,12 +136,13 @@ namespace ProyectoFinal.View
             // 
             this.txtDUI.Location = new System.Drawing.Point(218, 34);
             this.txtDUI.Name = "txtDUI";
+            this.txtDUI.PlaceholderText = "12345678-0";
             this.txtDUI.Size = new System.Drawing.Size(203, 23);
             this.txtDUI.TabIndex = 9;
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(255, 301);
+            this.btnAceptar.Location = new System.Drawing.Point(237, 332);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(110, 50);
             this.btnAceptar.TabIndex = 10;
@@ -145,7 +152,7 @@ namespace ProyectoFinal.View
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(102, 301);
+            this.btnCancelar.Location = new System.Drawing.Point(102, 332);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(110, 50);
             this.btnCancelar.TabIndex = 11;
@@ -167,7 +174,7 @@ namespace ProyectoFinal.View
             // 
             this.cmbVacunador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbVacunador.FormattingEnabled = true;
-            this.cmbVacunador.Location = new System.Drawing.Point(218, 209);
+            this.cmbVacunador.Location = new System.Drawing.Point(218, 212);
             this.cmbVacunador.Name = "cmbVacunador";
             this.cmbVacunador.Size = new System.Drawing.Size(203, 23);
             this.cmbVacunador.TabIndex = 13;
@@ -186,17 +193,38 @@ namespace ProyectoFinal.View
             // 
             this.cmbEfecto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEfecto.FormattingEnabled = true;
-            this.cmbEfecto.Location = new System.Drawing.Point(218, 243);
+            this.cmbEfecto.Location = new System.Drawing.Point(218, 246);
             this.cmbEfecto.Name = "cmbEfecto";
             this.cmbEfecto.Size = new System.Drawing.Size(203, 23);
             this.cmbEfecto.TabIndex = 15;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.Location = new System.Drawing.Point(58, 275);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(154, 25);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Vacuna aplicada:";
+            // 
+            // cmbVacuna
+            // 
+            this.cmbVacuna.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbVacuna.FormattingEnabled = true;
+            this.cmbVacuna.Location = new System.Drawing.Point(218, 280);
+            this.cmbVacuna.Name = "cmbVacuna";
+            this.cmbVacuna.Size = new System.Drawing.Size(203, 23);
+            this.cmbVacuna.TabIndex = 17;
             // 
             // frmProcesoVacunacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.ClientSize = new System.Drawing.Size(457, 382);
+            this.ClientSize = new System.Drawing.Size(457, 411);
+            this.Controls.Add(this.cmbVacuna);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.cmbEfecto);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cmbVacunador);
@@ -242,5 +270,7 @@ namespace ProyectoFinal.View
         private System.Windows.Forms.ComboBox cmbVacunador;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cmbEfecto;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cmbVacuna;
     }
 }

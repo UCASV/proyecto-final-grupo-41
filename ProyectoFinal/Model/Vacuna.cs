@@ -29,5 +29,15 @@ namespace ProyectoFinal.Model
         public virtual VacunaAplicadum IdVacunaAplicadaNavigation { get; set; }
         public virtual ICollection<AplicarVacuna> AplicarVacunas { get; set; }
         public virtual ICollection<VacunaxEfectoSecundario> VacunaxEfectoSecundarios { get; set; }
+
+        public Vacuna(string fechaEsperaVacuna1, string horaEsperaVacuna1, string fechaVacunacionVacuna1, string horaVacunacionVacuna1, int idUsuario, int idVacunaAplicada)
+        {
+            FechaEsperaVacuna1 = fechaEsperaVacuna1;
+            HoraEsperaVacuna1 = horaEsperaVacuna1;
+            FechaVacunacionVacuna1 = fechaVacunacionVacuna1;
+            HoraVacunacionVacuna1 = horaVacunacionVacuna1;
+            IdUsuario = idUsuario;
+            IdVacunaAplicada = idVacunaAplicada;
+        }
     }
 }
