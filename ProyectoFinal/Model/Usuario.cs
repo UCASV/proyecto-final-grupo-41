@@ -7,6 +7,12 @@ namespace ProyectoFinal.Model
 {
     public partial class Usuario
     {
+        public Usuario()
+        {
+            Cita = new HashSet<Citum>();
+            Vacunas = new HashSet<Vacuna>();
+        }
+
         public int Id { get; set; }
         public string Dui { get; set; }
         public string Direccion { get; set; }
@@ -20,16 +26,5 @@ namespace ProyectoFinal.Model
         public virtual InstitucionEsencial IdInstitucionEsencialNavigation { get; set; }
         public virtual ICollection<Citum> Cita { get; set; }
         public virtual ICollection<Vacuna> Vacunas { get; set; }
-
-        public Usuario(string dui, string direccion, string correoElectronico, string nombre, string telefono, int? idInstitucionEsencial, int? idEnfermedadCronica)
-        {
-            Dui = dui;
-            Direccion = direccion;
-            CorreoElectronico = correoElectronico;
-            Nombre = nombre;
-            Telefono = telefono;
-            IdInstitucionEsencial = idInstitucionEsencial;
-            IdEnfermedadCronica = idEnfermedadCronica;
-        }
     }
 }

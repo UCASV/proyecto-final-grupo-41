@@ -7,18 +7,14 @@ namespace ProyectoFinal.Model
 {
     public partial class EfectoSecundario
     {
-        public EfectoSecundario(string nombre, int? idVacuna)
+        public EfectoSecundario()
         {
-            Nombre = nombre;
-            IdVacuna = idVacuna;
+            VacunaxEfectoSecundarios = new HashSet<VacunaxEfectoSecundario>();
         }
 
         public int Id { get; set; }
         public string Nombre { get; set; }
-        public int? IdVacuna { get; set; }
 
-        public virtual Vacuna IdVacunaNavigation { get; set; }
-
-        
+        public virtual ICollection<VacunaxEfectoSecundario> VacunaxEfectoSecundarios { get; set; }
     }
 }

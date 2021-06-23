@@ -5,12 +5,12 @@ using System.Collections.Generic;
 
 namespace ProyectoFinal.Model
 {
-    public partial class AplicarVacuna
+    public partial class VacunaxEfectoSecundario
     {
-        public int IdVacunador { get; set; }
         public int IdVacuna { get; set; }
+        public int IdEfectoSecundario { get; set; }
 
+        public virtual EfectoSecundario IdEfectoSecundarioNavigation { get; set; }
         public virtual Vacuna IdVacunaNavigation { get; set; }
-        public virtual Vacunador IdVacunadorNavigation { get; set; }
     }
 }

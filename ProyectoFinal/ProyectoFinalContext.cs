@@ -28,14 +28,16 @@ namespace ProyectoFinal.Model
         public virtual DbSet<InstitucionEsencial> InstitucionEsencials { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
         public virtual DbSet<Vacuna> Vacunas { get; set; }
+        public virtual DbSet<VacunaAplicadum> VacunaAplicada { get; set; }
         public virtual DbSet<Vacunador> Vacunadors { get; set; }
+        public virtual DbSet<VacunaxEfectoSecundario> VacunaxEfectoSecundarios { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=PEÑA; Database=ProyectoFinalDB; Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Data Source=DESKTOP-I2BFQIS;Initial Catalog=ProyectoFinalDB;Integrated Security=True");
             }
         }
 
@@ -58,13 +60,13 @@ namespace ProyectoFinal.Model
                     .WithMany(p => p.AplicarVacunas)
                     .HasForeignKey(d => d.IdVacuna)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__APLICAR_V__id_va__4222D4EF");
+                    .HasConstraintName("FK__APLICAR_V__id_va__45F365D3");
 
                 entity.HasOne(d => d.IdVacunadorNavigation)
                     .WithMany(p => p.AplicarVacunas)
                     .HasForeignKey(d => d.IdVacunador)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__APLICAR_V__id_va__412EB0B6");
+                    .HasConstraintName("FK__APLICAR_V__id_va__44FF419A");
             });
 
             modelBuilder.Entity<Cabina>(entity =>
@@ -90,7 +92,7 @@ namespace ProyectoFinal.Model
                 entity.HasOne(d => d.IdGestorNavigation)
                     .WithMany(p => p.Cabinas)
                     .HasForeignKey(d => d.IdGestor)
-                    .HasConstraintName("FK__CABINA__id_gesto__398D8EEE");
+                    .HasConstraintName("FK__CABINA__id_gesto__3D5E1FD2");
             });
 
             modelBuilder.Entity<CentroVacunacion>(entity =>
@@ -142,19 +144,19 @@ namespace ProyectoFinal.Model
                     .WithMany(p => p.Cita)
                     .HasForeignKey(d => d.IdCentroVacunacion)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__CITA__id_centro___3C69FB99");
+                    .HasConstraintName("FK__CITA__id_centro___403A8C7D");
 
                 entity.HasOne(d => d.IdGestorNavigation)
                     .WithMany(p => p.Cita)
                     .HasForeignKey(d => d.IdGestor)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__CITA__id_gestor__3A81B327");
+                    .HasConstraintName("FK__CITA__id_gestor__3E52440B");
 
                 entity.HasOne(d => d.IdUsuarioNavigation)
                     .WithMany(p => p.Cita)
                     .HasForeignKey(d => d.IdUsuario)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__CITA__id_usuario__3B75D760");
+                    .HasConstraintName("FK__CITA__id_usuario__3F466844");
             });
 
             modelBuilder.Entity<EfectoSecundario>(entity =>
@@ -163,18 +165,11 @@ namespace ProyectoFinal.Model
 
                 entity.Property(e => e.Id).HasColumnName("id");
 
-                entity.Property(e => e.IdVacuna).HasColumnName("id_vacuna");
-
                 entity.Property(e => e.Nombre)
                     .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("nombre");
-
-                entity.HasOne(d => d.IdVacunaNavigation)
-                    .WithMany(p => p.EfectoSecundarios)
-                    .HasForeignKey(d => d.IdVacuna)
-                    .HasConstraintName("FK__EFECTO_SE__id_va__403A8C7D");
             });
 
             modelBuilder.Entity<EnfermedadCronica>(entity =>
@@ -241,13 +236,13 @@ namespace ProyectoFinal.Model
                     .WithMany(p => p.InicioSesions)
                     .HasForeignKey(d => d.IdCabina)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__INICIO_SE__id_ca__440B1D61");
+                    .HasConstraintName("FK__INICIO_SE__id_ca__47DBAE45");
 
                 entity.HasOne(d => d.IdGestorNavigation)
                     .WithMany(p => p.InicioSesions)
                     .HasForeignKey(d => d.IdGestor)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__INICIO_SE__id_ge__4316F928");
+                    .HasConstraintName("FK__INICIO_SE__id_ge__46E78A0C");
             });
 
             modelBuilder.Entity<InstitucionEsencial>(entity =>
@@ -305,12 +300,12 @@ namespace ProyectoFinal.Model
                 entity.HasOne(d => d.IdEnfermedadCronicaNavigation)
                     .WithMany(p => p.Usuarios)
                     .HasForeignKey(d => d.IdEnfermedadCronica)
-                    .HasConstraintName("FK__USUARIO__id_enfe__3F466844");
+                    .HasConstraintName("FK__USUARIO__id_enfe__440B1D61");
 
                 entity.HasOne(d => d.IdInstitucionEsencialNavigation)
                     .WithMany(p => p.Usuarios)
                     .HasForeignKey(d => d.IdInstitucionEsencial)
-                    .HasConstraintName("FK__USUARIO__id_inst__3E52440B");
+                    .HasConstraintName("FK__USUARIO__id_inst__4316F928");
             });
 
             modelBuilder.Entity<Vacuna>(entity =>
@@ -339,32 +334,54 @@ namespace ProyectoFinal.Model
                     .IsUnicode(false)
                     .HasColumnName("fecha_vacunacion_vacuna2");
 
-                entity.Property(e => e.HoraVacuna1)
+                entity.Property(e => e.HoraEsperaVacuna1)
                     .HasMaxLength(5)
                     .IsUnicode(false)
-                    .HasColumnName("hora_vacuna1");
+                    .HasColumnName("hora_espera_vacuna1");
 
-                entity.Property(e => e.HoraVacuna2)
+                entity.Property(e => e.HoraEsperaVacuna2)
                     .HasMaxLength(5)
                     .IsUnicode(false)
-                    .HasColumnName("hora_vacuna2");
+                    .HasColumnName("hora_espera_vacuna2");
 
-                entity.Property(e => e.HoraVacunacion1)
+                entity.Property(e => e.HoraVacunacionVacuna1)
                     .HasMaxLength(5)
                     .IsUnicode(false)
-                    .HasColumnName("hora_vacunacion1");
+                    .HasColumnName("hora_vacunacion_vacuna1");
 
-                entity.Property(e => e.HoraVacunacion2)
+                entity.Property(e => e.HoraVacunacionVacuna2)
                     .HasMaxLength(5)
                     .IsUnicode(false)
-                    .HasColumnName("hora_vacunacion2");
+                    .HasColumnName("hora_vacunacion_vacuna2");
 
                 entity.Property(e => e.IdUsuario).HasColumnName("id_usuario");
+
+                entity.Property(e => e.IdVacunaAplicada).HasColumnName("id_vacuna_aplicada");
 
                 entity.HasOne(d => d.IdUsuarioNavigation)
                     .WithMany(p => p.Vacunas)
                     .HasForeignKey(d => d.IdUsuario)
-                    .HasConstraintName("FK__VACUNA__id_usuar__3D5E1FD2");
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__VACUNA__id_usuar__412EB0B6");
+
+                entity.HasOne(d => d.IdVacunaAplicadaNavigation)
+                    .WithMany(p => p.Vacunas)
+                    .HasForeignKey(d => d.IdVacunaAplicada)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__VACUNA__id_vacun__4222D4EF");
+            });
+
+            modelBuilder.Entity<VacunaAplicadum>(entity =>
+            {
+                entity.ToTable("VACUNA_APLICADA");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Nombre)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("nombre");
             });
 
             modelBuilder.Entity<Vacunador>(entity =>
@@ -396,6 +413,30 @@ namespace ProyectoFinal.Model
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("tipo_encargado");
+            });
+
+            modelBuilder.Entity<VacunaxEfectoSecundario>(entity =>
+            {
+                entity.HasKey(e => new { e.IdVacuna, e.IdEfectoSecundario })
+                    .HasName("PK_VacunaxEfectoSecundario");
+
+                entity.ToTable("VACUNAxEFECTO_SECUNDARIO");
+
+                entity.Property(e => e.IdVacuna).HasColumnName("id_vacuna");
+
+                entity.Property(e => e.IdEfectoSecundario).HasColumnName("id_efecto_secundario");
+
+                entity.HasOne(d => d.IdEfectoSecundarioNavigation)
+                    .WithMany(p => p.VacunaxEfectoSecundarios)
+                    .HasForeignKey(d => d.IdEfectoSecundario)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__VACUNAxEF__id_ef__49C3F6B7");
+
+                entity.HasOne(d => d.IdVacunaNavigation)
+                    .WithMany(p => p.VacunaxEfectoSecundarios)
+                    .HasForeignKey(d => d.IdVacuna)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__VACUNAxEF__id_va__48CFD27E");
             });
 
             OnModelCreatingPartial(modelBuilder);
