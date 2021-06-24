@@ -31,11 +31,11 @@ namespace ProyectoFinal.View
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGestorLogIn));
             this.label1 = new System.Windows.Forms.Label();
-            this.txtUser = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnEnterUser = new System.Windows.Forms.Button();
+            this.cmbUsuario = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -48,17 +48,11 @@ namespace ProyectoFinal.View
             this.label1.TabIndex = 0;
             this.label1.Text = "Inicio de sesión";
             // 
-            // txtUser
-            // 
-            this.txtUser.Location = new System.Drawing.Point(140, 74);
-            this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(160, 23);
-            this.txtUser.TabIndex = 1;
-            // 
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(140, 122);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(160, 23);
             this.txtPassword.TabIndex = 2;
             // 
@@ -93,21 +87,31 @@ namespace ProyectoFinal.View
             this.btnEnterUser.UseVisualStyleBackColor = true;
             this.btnEnterUser.Click += new System.EventHandler(this.btnEnterUser_Click);
             // 
+            // cmbUsuario
+            // 
+            this.cmbUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbUsuario.FormattingEnabled = true;
+            this.cmbUsuario.Location = new System.Drawing.Point(139, 76);
+            this.cmbUsuario.Name = "cmbUsuario";
+            this.cmbUsuario.Size = new System.Drawing.Size(160, 23);
+            this.cmbUsuario.TabIndex = 6;
+            // 
             // frmGestorLogIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PaleTurquoise;
             this.ClientSize = new System.Drawing.Size(326, 212);
+            this.Controls.Add(this.cmbUsuario);
             this.Controls.Add(this.btnEnterUser);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.txtUser);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmGestorLogIn";
             this.Text = "LogIn";
+            this.Load += new System.EventHandler(this.frmGestorLogIn_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,10 +120,10 @@ namespace ProyectoFinal.View
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnEnterUser;
+        private System.Windows.Forms.ComboBox cmbUsuario;
     }
 }

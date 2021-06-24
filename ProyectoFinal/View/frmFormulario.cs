@@ -62,10 +62,10 @@ namespace ProyectoFinal.View
 
                 // Mensaje de confirmacion
                 MessageBox.Show("Usuario registrado exitosamente!", "Formulario", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Hide();
 
-                // Se procede a agendar la cita1
+                // Se procede a agendar la cita 1
                 frmCita1 ventana = new frmCita1();
+                this.Hide();
                 ventana.ShowDialog();
             }
             else
@@ -74,12 +74,14 @@ namespace ProyectoFinal.View
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            frmPrechequeo ventana = new frmPrechequeo();
             this.Hide();
+            ventana.ShowDialog();
         }
 
         private void frmFormulario_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Hide();
+            Application.Exit();
         }
     }
 }

@@ -83,10 +83,10 @@ namespace ProyectoFinal.View
 
                 // Mensaje de confirmacion
                 MessageBox.Show("Usted ha recibido su primera dosis!", "Dosis 1", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Hide();
 
                 // Se procede a agendar la cita 2
                 frmCita2 ventana = new frmCita2();
+                this.Hide();
                 ventana.ShowDialog();
             }
             else
@@ -95,7 +95,9 @@ namespace ProyectoFinal.View
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            frmPrechequeo ventana = new frmPrechequeo();
             this.Hide();
+            ventana.ShowDialog();
         }
 
         private void frmProcesoVacunacion_FormClosing(object sender, FormClosingEventArgs e)

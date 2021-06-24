@@ -29,6 +29,7 @@ namespace ProyectoFinal.View
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCita2));
             this.SuspendLayout();
             // 
             // frmCita2
@@ -36,8 +37,9 @@ namespace ProyectoFinal.View
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(433, 399);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmCita2";
-            this.Text = "frmCita2";
+            this.Text = "Cita2";
             this.ResumeLayout(false);
 
         }

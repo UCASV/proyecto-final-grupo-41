@@ -21,12 +21,14 @@ namespace ProyectoFinal
         private void btnRegistrarse_Click(object sender, EventArgs e)
         {
             frmFormulario ventana = new frmFormulario();
+            this.Hide();
             ventana.ShowDialog();
         }
 
         private void btnPaso2_Click(object sender, EventArgs e)
         {
             frmProcesoVacunacion ventana = new frmProcesoVacunacion();
+            this.Hide();
             ventana.ShowDialog();
         }
 

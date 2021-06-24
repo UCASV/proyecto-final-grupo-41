@@ -63,20 +63,19 @@ namespace ProyectoFinal.View
 
                 // Mensaje de confirmacion
                 MessageBox.Show("Cita agendada exitosamente!", "Cita1", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Regresando al formulario de prechequeo
+                frmPrechequeo ventana = new frmPrechequeo();
                 this.Hide();
+                ventana.ShowDialog();
             }
             else
                 MessageBox.Show("Los datos ingresados no son validos!", "Cita1", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-        }
-
         private void frmCita1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Hide();
+            Application.Exit();
         }
     }
 }

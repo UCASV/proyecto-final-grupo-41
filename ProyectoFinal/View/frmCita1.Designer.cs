@@ -40,7 +40,6 @@ namespace ProyectoFinal.View
             this.txtHora = new System.Windows.Forms.TextBox();
             this.cmbGestor = new System.Windows.Forms.ComboBox();
             this.btnAceptar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.cmbLugar = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
@@ -129,23 +128,13 @@ namespace ProyectoFinal.View
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(243, 259);
+            this.btnAceptar.Location = new System.Drawing.Point(171, 250);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(117, 45);
             this.btnAceptar.TabIndex = 10;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(73, 259);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(117, 45);
-            this.btnCancelar.TabIndex = 11;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // cmbLugar
             // 
@@ -161,9 +150,8 @@ namespace ProyectoFinal.View
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.ClientSize = new System.Drawing.Size(444, 352);
+            this.ClientSize = new System.Drawing.Size(444, 323);
             this.Controls.Add(this.cmbLugar);
-            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.cmbGestor);
             this.Controls.Add(this.txtHora);
@@ -197,7 +185,6 @@ namespace ProyectoFinal.View
         private System.Windows.Forms.TextBox txtHora;
         private System.Windows.Forms.ComboBox cmbGestor;
         private System.Windows.Forms.Button btnAceptar;
-        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.ComboBox cmbLugar;
     }
 }
