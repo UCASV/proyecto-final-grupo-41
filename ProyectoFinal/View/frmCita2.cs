@@ -18,7 +18,7 @@ namespace ProyectoFinal.View
             InitializeComponent();
         }
 
-        private void btnAceptar_Click(object sender, EventArgs e)
+        private void frmCita2_Load(object sender, EventArgs e)
         {
             using (var db = new ProyectoFinalContext())
             {
@@ -29,7 +29,13 @@ namespace ProyectoFinal.View
                 cmbLugar.DataSource = db.CentroVacunacions.ToList();
                 cmbLugar.DisplayMember = "Nombre";
                 cmbLugar.ValueMember = "Id";
-
+            }
+        }
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            using (var db = new ProyectoFinalContext())
+            {
+               
                 bool validaciones =
                 txtDUI.Text.Length == 10 &&
                 txtFecha.Text.Length == 10 &&
@@ -40,7 +46,7 @@ namespace ProyectoFinal.View
                     Gestor Gref = (Gestor)cmbGestor.SelectedItem;
                     CentroVacunacion CVref = (CentroVacunacion)cmbLugar.SelectedItem;
 
-                    // Mediante las variables de referencia se obtienen los datos almacenados en la base
+                   // Mediante las variables de referencia se obtienen los datos almacenados en la base
                     Gestor Gdb = db.Set<Gestor>()
                         .SingleOrDefault(g => g.Id == Gref.Id);
 
@@ -50,9 +56,16 @@ namespace ProyectoFinal.View
                     Usuario Udb = db.Set<Usuario>()
                         .SingleOrDefault(u => u.Dui == txtDUI.Text);
 
+                    var Cit = db.Cita.ToList();
+
+
+
                     // Se guardan los datos de la cita (se agenda la cita)
-                    Citum c = new Citum(null,null,txtFecha.Text, txtHora.Text, Gdb.Id, Udb.Id, CVdb.Id);
-                    db.Add(c);
+                    Citum c = new Citum(null, null, txtFecha.Text, txtHora.Text, Gdb.Id, Udb.Id, CVdb.Id);
+                    var query = from date in db.Cita
+                                join person in db.Usuarios on date.IdUsuario equals person.Id
+                                where person.Dui == txtDUI.Text
+                                select db.Add(c);
                     db.SaveChanges();
 
                     // Mensaje de confirmacion
