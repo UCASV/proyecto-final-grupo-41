@@ -51,12 +51,12 @@ namespace ProyectoFinal.View
                         .SingleOrDefault(u => u.Dui == txtDUI.Text);
 
                     // Se guardan los datos de la cita (se agenda la cita)
-                    Citum c = new Citum(txtFecha.Text, txtHora.Text, Gdb.Id, Udb.Id, CVdb.Id);
+                    Citum c = new Citum(null,null,txtFecha.Text, txtHora.Text, Gdb.Id, Udb.Id, CVdb.Id);
                     db.Add(c);
                     db.SaveChanges();
 
                     // Mensaje de confirmacion
-                    MessageBox.Show("Cita agendada exitosamente!", "Cita1", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Cita agendada exitosamente!", "Cita2", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     // Regresando al formulario de prechequeo
                     frmPrechequeo ventana = new frmPrechequeo();
@@ -64,7 +64,7 @@ namespace ProyectoFinal.View
                     ventana.ShowDialog();
                 }
                 else
-                    MessageBox.Show("Los datos ingresados no son validos!", "Cita1", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Los datos ingresados no son validos!", "Cita2", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void frmCita1_FormClosing(object sender, FormClosingEventArgs e)

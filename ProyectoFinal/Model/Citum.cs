@@ -20,13 +20,18 @@ namespace ProyectoFinal.Model
         public virtual Gestor IdGestorNavigation { get; set; }
         public virtual Usuario IdUsuarioNavigation { get; set; }
 
-        public Citum(string fechaCita1, string horaCita1, int idGestor, int idUsuario, int idCentroVacunacion)
+        public Citum(string fechaCita1, string horaCita1, string fechaCita2, string horaCita2, int idGestor, int idUsuario, int idCentroVacunacion)
         {
             FechaCita1 = fechaCita1;
             HoraCita1 = horaCita1;
+            FechaCita2 = fechaCita2;
+            HoraCita2 = horaCita2;
             IdGestor = idGestor;
             IdUsuario = idUsuario;
             IdCentroVacunacion = idCentroVacunacion;
         }
+
+    
+
     }
 }

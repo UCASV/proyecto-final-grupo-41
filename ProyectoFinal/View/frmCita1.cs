@@ -57,7 +57,7 @@ namespace ProyectoFinal.View
                     .SingleOrDefault(u => u.Dui == txtDUI.Text);
 
                 // Se guardan los datos de la cita (se agenda la cita)
-                Citum c = new Citum(txtFecha.Text, txtHora.Text, Gdb.Id, Udb.Id, CVdb.Id);
+                Citum c = new Citum(txtFecha.Text, txtHora.Text,null,null, Gdb.Id, Udb.Id, CVdb.Id);
                 db.Add(c);
                 db.SaveChanges();
 
