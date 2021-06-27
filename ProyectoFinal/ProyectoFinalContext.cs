@@ -21,6 +21,7 @@ namespace ProyectoFinal.Model
         public virtual DbSet<Cabina> Cabinas { get; set; }
         public virtual DbSet<CentroVacunacion> CentroVacunacions { get; set; }
         public virtual DbSet<Citum> Cita { get; set; }
+        public virtual DbSet<Citum2> Cita2 { get; set; }
         public virtual DbSet<EfectoSecundario> EfectoSecundarios { get; set; }
         public virtual DbSet<EnfermedadCronica> EnfermedadCronicas { get; set; }
         public virtual DbSet<Gestor> Gestors { get; set; }
@@ -37,7 +38,7 @@ namespace ProyectoFinal.Model
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=PEÑA; Database=ProyectoFinalDB; Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=DUPAINCHENG; Database=ProyectoFinalDB; Trusted_Connection=True;");
             }
         }
 
@@ -119,20 +120,11 @@ namespace ProyectoFinal.Model
                     .IsUnicode(false)
                     .HasColumnName("fecha_cita1");
 
-                entity.Property(e => e.FechaCita2)
-                    .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .HasColumnName("fecha_cita2");
-
                 entity.Property(e => e.HoraCita1)
                     .HasMaxLength(5)
                     .IsUnicode(false)
                     .HasColumnName("hora_cita1");
 
-                entity.Property(e => e.HoraCita2)
-                    .HasMaxLength(5)
-                    .IsUnicode(false)
-                    .HasColumnName("hora_cita2");
 
                 entity.Property(e => e.IdCentroVacunacion).HasColumnName("id_centro_vacunacion");
 
@@ -157,6 +149,48 @@ namespace ProyectoFinal.Model
                     .HasForeignKey(d => d.IdUsuario)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__CITA__id_usuario__3F466844");
+            });
+
+            modelBuilder.Entity<Citum2>(entity =>
+            {
+                entity.ToTable("CITA2");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.FechaCita2)
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .HasColumnName("fecha_cita1");
+
+                entity.Property(e => e.HoraCita2)
+                    .HasMaxLength(5)
+                    .IsUnicode(false)
+                    .HasColumnName("hora_cita1");
+
+
+                entity.Property(e => e.IdCentroVacunacion).HasColumnName("id_centro_vacunacion");
+
+                entity.Property(e => e.IdGestor).HasColumnName("id_gestor");
+
+                entity.Property(e => e.IdUsuario).HasColumnName("id_usuario");
+
+                entity.HasOne(d => d.IdCentroVacunacionNavigation)
+                    .WithMany(p => p.Cita)
+                    .HasForeignKey(d => d.IdCentroVacunacion)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__CITA2__id_centro___403A8C7D");
+
+                entity.HasOne(d => d.IdGestorNavigation)
+                    .WithMany(p => p.Cita2)
+                    .HasForeignKey(d => d.IdGestor)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__CITA2__id_gestor__3E52440B");
+
+                entity.HasOne(d => d.IdUsuarioNavigation)
+                    .WithMany(p => p.Cita2)
+                    .HasForeignKey(d => d.IdUsuario)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__CITA2__id_usuario__3F466844");
             });
 
             modelBuilder.Entity<EfectoSecundario>(entity =>

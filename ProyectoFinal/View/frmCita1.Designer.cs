@@ -128,12 +128,14 @@ namespace ProyectoFinal.View
             // 
             // btnAceptar
             // 
+            this.btnAceptar.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnAceptar.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnAceptar.Location = new System.Drawing.Point(171, 250);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(117, 45);
             this.btnAceptar.TabIndex = 10;
             this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.UseVisualStyleBackColor = false;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // cmbLugar
