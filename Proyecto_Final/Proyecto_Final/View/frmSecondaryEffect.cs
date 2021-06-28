@@ -24,8 +24,8 @@ namespace Proyecto_Final.View
             {
                 using(var db = new ProyectoFinalDBContext())
                 {
-                    EfectoSecundario IEref = (EfectoSecundario)cmbEffects.SelectedItem;
-                    DosisxEfectoSecundario Effect = new DosisxEfectoSecundario(frmFirstDose.Pass2, frmFirstDose.Pass2);
+                    EfectoSecundario ESref = (EfectoSecundario)cmbEffects.SelectedItem;
+                    DosisxEfectoSecundario Effect = new DosisxEfectoSecundario(frmFirstDose.Pass2, ESref.Id);
                     db.Add(Effect);
                     db.SaveChanges();
                 }
