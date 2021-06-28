@@ -77,8 +77,8 @@ CREATE TABLE CIUDADANO(
 	correo_electronico VARCHAR(100) NULL,
 	nombre VARCHAR(50) NOT NULL,
 	telefono VARCHAR(8) NOT NULL,
-	id_enfermedad_cronica INT NULL,
-	id_institucion_esencial INT NULL
+	id_enfermedad_cronica INT NOT NULL,
+	id_institucion_esencial INT NOT NULL
 );
 
 CREATE TABLE DOSIS(
@@ -87,27 +87,28 @@ CREATE TABLE DOSIS(
 	hora_espera VARCHAR(5) NULL,
 	fecha_vacunacion VARCHAR(10) NULL,
 	hora_vacunacion VARCHAR(5) NULL,
+	dosis INT NULL,
 	id_vacuna INT NOT NULL
 );
 
 -- TABLAS N:N
 CREATE TABLE INICIO_SESION(
+	id INT PRIMARY KEY IDENTITY,
 	id_gestor INT NOT NULL,
 	id_cabina INT NOT NULL,
-	fecha_y_hora VARCHAR(20) NOT NULL,
-	CONSTRAINT PK_GestorxCabina PRIMARY KEY (id_gestor,id_cabina)
+	fecha_y_hora VARCHAR(20) NOT NULL
 );
 
 CREATE TABLE VACUNACION(
+	id INT PRIMARY KEY IDENTITY,
 	id_ciudadano INT NOT NULL,
 	id_dosis INT NOT NULL
-	CONSTRAINT PK_VacunanorxVacuna PRIMARY KEY (id_ciudadano,id_dosis)
 );
 
 CREATE TABLE DOSISxEFECTO_SECUNDARIO(
+	id INT PRIMARY KEY IDENTITY,
 	id_dosis INT NOT NULL,
-	id_efecto_secundario INT NOT NULL,
-	CONSTRAINT PK_VacunaxEfectoSecundario PRIMARY KEY(id_dosis, id_efecto_secundario)
+	id_efecto_secundario INT NOT NULL
 );
 
 -- CREANDO LLAVES FORANEAS (FK)
