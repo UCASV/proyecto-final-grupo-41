@@ -12,5 +12,11 @@ namespace Proyecto_Final.Models
 
         public virtual Ciudadano IdCiudadanoNavigation { get; set; }
         public virtual Dosi IdDosisNavigation { get; set; }
+
+        public Vacunacion(int IdCiudadano, int IdDosis)
+        {
+            this.IdCiudadano = IdCiudadano;
+            this.IdDosis = IdDosis;
+        }
     }
 }

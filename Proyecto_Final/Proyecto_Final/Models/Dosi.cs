@@ -23,5 +23,15 @@ namespace Proyecto_Final.Models
         public virtual Vacuna IdVacunaNavigation { get; set; }
         public virtual ICollection<DosisxEfectoSecundario> DosisxEfectoSecundarios { get; set; }
         public virtual ICollection<Vacunacion> Vacunacions { get; set; }
+
+        public Dosi(string FechaEspera, string HoraEspera, string FechaVacunacion, 
+            string HoraVacunacion,int IdVacuna)
+        {
+            this.FechaEspera = FechaEspera;
+            this.HoraEspera = HoraEspera;
+            this.FechaVacunacion = FechaVacunacion;
+            this.HoraVacunacion = HoraVacunacion;
+            this.IdVacuna = IdVacuna;
+        }
     }
 }

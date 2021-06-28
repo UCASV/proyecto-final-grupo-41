@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Proyecto_Final.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,9 +22,28 @@ namespace Proyecto_Final.View
         {
             using(Form newWindow = new frmAppointment2())
             {
+                using(var db = new ProyectoFinalDBContext())
+                {
+                    EfectoSecundario IEref = (EfectoSecundario)cmbEffects.SelectedItem;
+                    DosisxEfectoSecundario Effect = new DosisxEfectoSecundario(frmFirstDose.Pass2, frmFirstDose.Pass2);
+                    db.Add(Effect);
+                    db.SaveChanges();
+                }
                 newWindow.ShowDialog();
                 this.Close();
             }
+        }
+
+        private void frmSecondaryEffect_Load(object sender, EventArgs e)
+        {
+
+            using(var db = new ProyectoFinalDBContext())
+            {
+                cmbEffects.DataSource = db.EfectoSecundarios.ToList();
+                cmbEffects.DisplayMember = "Nombre";
+                cmbEffects.ValueMember = "Id";
+            }
+            
         }
     }
 }

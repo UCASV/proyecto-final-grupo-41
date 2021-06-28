@@ -7,9 +7,10 @@ namespace Proyecto_Final.Models
 {
     public partial class EfectoSecundario
     {
-        public EfectoSecundario()
+        public EfectoSecundario(int Id, string Nombre)
         {
-            DosisxEfectoSecundarios = new HashSet<DosisxEfectoSecundario>();
+            this.Id = Id;
+            this.Nombre = Nombre;
         }
 
         public int Id { get; set; }

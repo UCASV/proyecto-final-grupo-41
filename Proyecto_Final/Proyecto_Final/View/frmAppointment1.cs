@@ -23,7 +23,7 @@ namespace Proyecto_Final.View
             using (var db = new ProyectoFinalDBContext())
             {
                 CentroVacunacion CVref = (CentroVacunacion)cmbCentroVacc.SelectedItem;
-                Cita1 cita = new Cita1(txtDate.Text, txtTime.Text,CVref.Id,frmGestorLogIn.Pass,frmCitizenRegister.Pass);
+                Cita1 cita = new Cita1(txtDate.Text, txtTime.Text,CVref.Id,frmGestorLogIn.Pass,frmCitizenRegister.Pass3);
                 db.Add(cita);
                 db.SaveChanges();
             }

@@ -12,5 +12,11 @@ namespace Proyecto_Final.Models
 
         public virtual Dosi IdDosisNavigation { get; set; }
         public virtual EfectoSecundario IdEfectoSecundarioNavigation { get; set; }
+
+        public DosisxEfectoSecundario(int IdDosis, int IdEfectoSecundario)
+        {
+            this.IdDosis = IdDosis;
+            this.IdEfectoSecundario = IdEfectoSecundario;
+        }
     }
 }

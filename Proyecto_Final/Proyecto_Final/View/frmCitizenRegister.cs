@@ -29,14 +29,13 @@ namespace Proyecto_Final.View
                     Ciudadano Person = new Ciudadano(txtDui.Text,txtDirection.Text, txtEmail.Text, txtName.Text,txtTelefono.Text, IEref.Id,ECref.Id);
                     db.Add(Person);
                     db.SaveChanges();
-                    List<Ciudadano> Cit = db.Ciudadanos.ToList();
-                    Pass = (from q in Cit where q.Dui == txtDui.Text select q.Id).SingleOrDefault(); 
+                    Pass3 = Person.Id;
                 }
                     newWindow.ShowDialog();
                 this.Hide();
             }
         }
-        public static int Pass;
+        public static int Pass3;
        
 
 
