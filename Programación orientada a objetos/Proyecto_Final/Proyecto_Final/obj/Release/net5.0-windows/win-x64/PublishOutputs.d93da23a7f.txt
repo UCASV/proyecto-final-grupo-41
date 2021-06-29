@@ -1,0 +1,4 @@
+C:\Users\cemc_\Desktop\New folder\Proyecto_Final.pdb
+C:\Users\cemc_\Desktop\New folder\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\cemc_\Desktop\New folder\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\cemc_\Desktop\New folder\Proyecto_Final.exe

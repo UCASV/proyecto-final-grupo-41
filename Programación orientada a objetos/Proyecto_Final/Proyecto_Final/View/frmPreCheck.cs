@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using Proyecto_Final.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -61,6 +63,30 @@ namespace Proyecto_Final.View
             using(Form newWindow = new frmSecondDose())
             {
                 newWindow.ShowDialog();
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            using(var db = new ProyectoFinalDBContext())
+            {
+                List<Cita1> Cit = db.Cita1s.ToList();
+                List<Dosi> Dosi = db.Doses.ToList();
+                List<Ciudadano> Us = db.Ciudadanos.ToList();
+                var queue =
+                    (from us in Us
+                     join cit in Cit
+                     on us.Id equals cit.IdCiudadano into joint
+                     from q in joint.DefaultIfEmpty()
+                     where us.Dui == txtSearchCitizen.Text
+                     select new
+
+                     {
+                         Nombre = us.Nombre,
+                         Dui = us.Dui,
+                         FechaCita1 = $"{q.Fecha} {q.Hora}"
+                     }).ToList();
+                dgvSingleSearch.DataSource = queue;
             }
         }
     }

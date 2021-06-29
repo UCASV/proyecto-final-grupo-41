@@ -36,22 +36,22 @@ namespace Proyecto_Final.View
             this.tbcPreCheck = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dgvQueue = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.txtSearchCitizen = new System.Windows.Forms.TextBox();
+            this.dgvSingleSearch = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.dgvQueue = new System.Windows.Forms.DataGridView();
-            this.dgvSingleSearch = new System.Windows.Forms.DataGridView();
-            this.txtSearchCitizen = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.tbcPreCheck.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQueue)).BeginInit();
+            this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSingleSearch)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnStartVaccProc
@@ -134,6 +134,19 @@ namespace Proyecto_Final.View
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // dgvQueue
+            // 
+            this.dgvQueue.AllowUserToAddRows = false;
+            this.dgvQueue.AllowUserToDeleteRows = false;
+            this.dgvQueue.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvQueue.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvQueue.Location = new System.Drawing.Point(3, 3);
+            this.dgvQueue.Name = "dgvQueue";
+            this.dgvQueue.ReadOnly = true;
+            this.dgvQueue.RowTemplate.Height = 25;
+            this.dgvQueue.Size = new System.Drawing.Size(432, 261);
+            this.dgvQueue.TabIndex = 0;
+            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.btnSearch);
@@ -146,6 +159,33 @@ namespace Proyecto_Final.View
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(357, 6);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 2;
+            this.btnSearch.Text = "Buscar";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // txtSearchCitizen
+            // 
+            this.txtSearchCitizen.Location = new System.Drawing.Point(3, 6);
+            this.txtSearchCitizen.Name = "txtSearchCitizen";
+            this.txtSearchCitizen.PlaceholderText = "DUI de ciudadano";
+            this.txtSearchCitizen.Size = new System.Drawing.Size(100, 23);
+            this.txtSearchCitizen.TabIndex = 1;
+            // 
+            // dgvSingleSearch
+            // 
+            this.dgvSingleSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSingleSearch.Location = new System.Drawing.Point(3, 35);
+            this.dgvSingleSearch.Name = "dgvSingleSearch";
+            this.dgvSingleSearch.RowTemplate.Height = 25;
+            this.dgvSingleSearch.Size = new System.Drawing.Size(432, 229);
+            this.dgvSingleSearch.TabIndex = 0;
             // 
             // toolStrip1
             // 
@@ -189,45 +229,6 @@ namespace Proyecto_Final.View
             this.toolStripButton3.Text = "Cerrar sesión";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
-            // dgvQueue
-            // 
-            this.dgvQueue.AllowUserToAddRows = false;
-            this.dgvQueue.AllowUserToDeleteRows = false;
-            this.dgvQueue.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvQueue.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvQueue.Location = new System.Drawing.Point(3, 3);
-            this.dgvQueue.Name = "dgvQueue";
-            this.dgvQueue.ReadOnly = true;
-            this.dgvQueue.RowTemplate.Height = 25;
-            this.dgvQueue.Size = new System.Drawing.Size(432, 261);
-            this.dgvQueue.TabIndex = 0;
-            // 
-            // dgvSingleSearch
-            // 
-            this.dgvSingleSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSingleSearch.Location = new System.Drawing.Point(3, 35);
-            this.dgvSingleSearch.Name = "dgvSingleSearch";
-            this.dgvSingleSearch.RowTemplate.Height = 25;
-            this.dgvSingleSearch.Size = new System.Drawing.Size(432, 229);
-            this.dgvSingleSearch.TabIndex = 0;
-            // 
-            // txtSearchCitizen
-            // 
-            this.txtSearchCitizen.Location = new System.Drawing.Point(3, 6);
-            this.txtSearchCitizen.Name = "txtSearchCitizen";
-            this.txtSearchCitizen.PlaceholderText = "DUI de ciudadano";
-            this.txtSearchCitizen.Size = new System.Drawing.Size(100, 23);
-            this.txtSearchCitizen.TabIndex = 1;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(357, 6);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 2;
-            this.btnSearch.Text = "Buscar";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            // 
             // frmPreCheck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -242,12 +243,12 @@ namespace Proyecto_Final.View
             this.tbcPreCheck.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvQueue)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSingleSearch)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvQueue)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSingleSearch)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
