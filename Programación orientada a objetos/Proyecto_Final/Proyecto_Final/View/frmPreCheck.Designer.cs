@@ -169,6 +169,10 @@ namespace Proyecto_Final.View
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Buscar";
             this.btnSearch.UseVisualStyleBackColor = true;
+<<<<<<< HEAD
+=======
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+>>>>>>> d417d3efedbae9c128805049c8b50a38e2974731
             // 
             // txtSearchCitizen
             // 
