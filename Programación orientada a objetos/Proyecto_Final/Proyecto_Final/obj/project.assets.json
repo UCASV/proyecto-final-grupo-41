@@ -5766,11 +5766,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\maria\\Documents\\proyecto-final-grupo-41\\Programación orientada a objetos\\Proyecto_Final\\Proyecto_Final\\Proyecto_Final.csproj",
+      "projectUniqueName": "C:\\Users\\maria\\Downloads\\Proyecto\\proyecto-final-grupo-41\\Programación orientada a objetos\\Proyecto_Final\\Proyecto_Final\\Proyecto_Final.csproj",
       "projectName": "Proyecto_Final",
-      "projectPath": "C:\\Users\\maria\\Documents\\proyecto-final-grupo-41\\Programación orientada a objetos\\Proyecto_Final\\Proyecto_Final\\Proyecto_Final.csproj",
+      "projectPath": "C:\\Users\\maria\\Downloads\\Proyecto\\proyecto-final-grupo-41\\Programación orientada a objetos\\Proyecto_Final\\Proyecto_Final\\Proyecto_Final.csproj",
       "packagesPath": "C:\\Users\\maria\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\maria\\Documents\\proyecto-final-grupo-41\\Programación orientada a objetos\\Proyecto_Final\\Proyecto_Final\\obj\\",
+      "outputPath": "C:\\Users\\maria\\Downloads\\Proyecto\\proyecto-final-grupo-41\\Programación orientada a objetos\\Proyecto_Final\\Proyecto_Final\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\maria\\AppData\\Roaming\\NuGet\\NuGet.Config",

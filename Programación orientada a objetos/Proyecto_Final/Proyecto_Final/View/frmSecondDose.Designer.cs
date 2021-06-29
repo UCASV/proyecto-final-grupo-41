@@ -29,6 +29,7 @@ namespace Proyecto_Final.View
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSecondDose));
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -137,6 +138,7 @@ namespace Proyecto_Final.View
             this.Controls.Add(this.txtDate);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmSecondDose";
             this.Text = "frmSecondDose";
             this.ResumeLayout(false);

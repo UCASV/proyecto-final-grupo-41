@@ -29,6 +29,7 @@ namespace Proyecto_Final.View
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSecondaryEffect));
             this.label1 = new System.Windows.Forms.Label();
             this.cmbEffects = new System.Windows.Forms.ComboBox();
             this.btnEnter = new System.Windows.Forms.Button();
@@ -46,6 +47,7 @@ namespace Proyecto_Final.View
             // 
             // cmbEffects
             // 
+            this.cmbEffects.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEffects.FormattingEnabled = true;
             this.cmbEffects.Location = new System.Drawing.Point(49, 57);
             this.cmbEffects.Name = "cmbEffects";
@@ -70,6 +72,7 @@ namespace Proyecto_Final.View
             this.Controls.Add(this.btnEnter);
             this.Controls.Add(this.cmbEffects);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmSecondaryEffect";
             this.Text = "frmSecondaryEffect";
             this.Load += new System.EventHandler(this.frmSecondaryEffect_Load);

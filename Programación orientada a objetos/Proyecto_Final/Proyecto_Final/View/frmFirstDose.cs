@@ -31,15 +31,24 @@ namespace Proyecto_Final.View
                     if (Find)
                     {
                         Vacuna Vref = (Vacuna)cmbVaccine.SelectedItem;
+                        EfectoSecundario Eref = (EfectoSecundario)cmbEfecto.SelectedItem;
+
                         Dosi dosis = new Dosi(txtDateWait.Text, txtTimeWait.Text, txtDate.Text, txtTime.Text, Vref.Id);
                         db.Add(dosis);
-                        Vacunacion proceso = new Vacunacion(IDS, Vref.Id);
+                        db.SaveChanges();
+                        Vacunacion proceso = new Vacunacion(IDS, dosis.Id);
                         db.Add(proceso);
                         db.SaveChanges();
-                        Pass = IDS;
-                        List<Dosi> Dosiss = db.Doses.ToList();
-                        Pass2 = (from q in Dosiss select q.Id).Max();
-                        newWindow.ShowDialog();
+                        DosisxEfectoSecundario dosisxefecto = new DosisxEfectoSecundario(dosis.Id, Eref.Id);
+                        db.Add(dosisxefecto);
+                        db.SaveChanges();
+
+                        MessageBox.Show("Usted ha recibido su primera dosis!", "Dosis1", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        //Pass = IDS;
+                        //List<Dosi> Dosiss = db.Doses.ToList();
+                        //Pass2 = (from q in Dosiss select q.Id).Max();
+                        //newWindow.ShowDialog();
                         this.Close();
                     }
                     else
@@ -61,6 +70,10 @@ namespace Proyecto_Final.View
                 cmbVaccine.DataSource = db.Vacunas.ToList();
                 cmbVaccine.DisplayMember = "Nombre";
                 cmbVaccine.ValueMember = "Id";
+
+                cmbEfecto.DataSource = db.EfectoSecundarios.ToList();
+                cmbEfecto.DisplayMember = "Nombre";
+                cmbEfecto.ValueMember = "Id";
             }
             
         }

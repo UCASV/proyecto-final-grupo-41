@@ -29,6 +29,7 @@ namespace Proyecto_Final
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGestorLogIn));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtUsuarioG = new System.Windows.Forms.TextBox();
@@ -69,6 +70,7 @@ namespace Proyecto_Final
             // 
             this.txtPasswordG.Location = new System.Drawing.Point(129, 62);
             this.txtPasswordG.Name = "txtPasswordG";
+            this.txtPasswordG.PasswordChar = '*';
             this.txtPasswordG.Size = new System.Drawing.Size(138, 23);
             this.txtPasswordG.TabIndex = 3;
             // 
@@ -113,6 +115,7 @@ namespace Proyecto_Final
             this.Controls.Add(this.txtUsuarioG);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmGestorLogIn";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.frmGestorLogIn_Load);

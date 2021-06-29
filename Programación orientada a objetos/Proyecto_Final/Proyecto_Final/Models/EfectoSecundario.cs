@@ -7,9 +7,8 @@ namespace Proyecto_Final.Models
 {
     public partial class EfectoSecundario
     {
-        public EfectoSecundario(int Id, string Nombre)
+        public EfectoSecundario(string Nombre)
         {
-            this.Id = Id;
             this.Nombre = Nombre;
         }
 

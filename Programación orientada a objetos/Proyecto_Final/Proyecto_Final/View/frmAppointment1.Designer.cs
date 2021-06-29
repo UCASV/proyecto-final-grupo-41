@@ -29,6 +29,7 @@ namespace Proyecto_Final.View
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAppointment1));
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -107,6 +108,7 @@ namespace Proyecto_Final.View
             // 
             // cmbCentroVacc
             // 
+            this.cmbCentroVacc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCentroVacc.FormattingEnabled = true;
             this.cmbCentroVacc.Location = new System.Drawing.Point(214, 89);
             this.cmbCentroVacc.Name = "cmbCentroVacc";
@@ -137,6 +139,7 @@ namespace Proyecto_Final.View
             this.Controls.Add(this.txtDate);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAppointment1";
             this.Text = "frmAppointment1";
             this.Load += new System.EventHandler(this.frmAppointment1_Load);

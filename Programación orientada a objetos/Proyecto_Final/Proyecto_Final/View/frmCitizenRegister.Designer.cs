@@ -29,6 +29,7 @@ namespace Proyecto_Final.View
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCitizenRegister));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -147,6 +148,7 @@ namespace Proyecto_Final.View
             // 
             // cmbCitizen
             // 
+            this.cmbCitizen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCitizen.FormattingEnabled = true;
             this.cmbCitizen.Location = new System.Drawing.Point(203, 222);
             this.cmbCitizen.Name = "cmbCitizen";
@@ -155,6 +157,7 @@ namespace Proyecto_Final.View
             // 
             // cmbDisease
             // 
+            this.cmbDisease.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDisease.FormattingEnabled = true;
             this.cmbDisease.Location = new System.Drawing.Point(203, 263);
             this.cmbDisease.Name = "cmbDisease";
@@ -198,6 +201,7 @@ namespace Proyecto_Final.View
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmCitizenRegister";
             this.Text = "frmCita1";
             this.Load += new System.EventHandler(this.frmCitizenRegister_Load);
