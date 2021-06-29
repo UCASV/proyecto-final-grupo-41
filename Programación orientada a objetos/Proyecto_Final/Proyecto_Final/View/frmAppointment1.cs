@@ -26,6 +26,7 @@ namespace Proyecto_Final.View
                 Cita1 cita = new Cita1(txtDate.Text, txtTime.Text,CVref.Id,frmGestorLogIn.Pass,frmCitizenRegister.Pass3);
                 db.Add(cita);
                 db.SaveChanges();
+                MessageBox.Show("Cita agendanda con exito!", "Cita1", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             this.Close();
         }
