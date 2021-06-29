@@ -5761,36 +5761,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\cemc_\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\maria\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\maria\\Downloads\\Proyecto\\proyecto-final-grupo-41\\Programación orientada a objetos\\Proyecto_Final\\Proyecto_Final\\Proyecto_Final.csproj",
       "projectName": "Proyecto_Final",
       "projectPath": "C:\\Users\\maria\\Downloads\\Proyecto\\proyecto-final-grupo-41\\Programación orientada a objetos\\Proyecto_Final\\Proyecto_Final\\Proyecto_Final.csproj",
       "packagesPath": "C:\\Users\\maria\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\maria\\Downloads\\Proyecto\\proyecto-final-grupo-41\\Programación orientada a objetos\\Proyecto_Final\\Proyecto_Final\\obj\\",
-=======
-      "projectUniqueName": "C:\\Users\\cemc_\\Documents\\WORKSPACES\\proyecto-final-grupo-41\\Programación orientada a objetos\\Proyecto_Final\\Proyecto_Final\\Proyecto_Final.csproj",
-      "projectName": "Proyecto_Final",
-      "projectPath": "C:\\Users\\cemc_\\Documents\\WORKSPACES\\proyecto-final-grupo-41\\Programación orientada a objetos\\Proyecto_Final\\Proyecto_Final\\Proyecto_Final.csproj",
-      "packagesPath": "C:\\Users\\cemc_\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\cemc_\\Documents\\WORKSPACES\\proyecto-final-grupo-41\\Programación orientada a objetos\\Proyecto_Final\\Proyecto_Final\\obj\\",
->>>>>>> d417d3efedbae9c128805049c8b50a38e2974731
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\cemc_\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\maria\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0-windows7.0"
@@ -5851,5 +5835,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema al leer el archivo de caché C:\\Users\\maria\\Downloads\\Proyecto\\proyecto-final-grupo-41\\Programación orientada a objetos\\Proyecto_Final\\Proyecto_Final\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
